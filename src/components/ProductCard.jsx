@@ -2,8 +2,14 @@ import React from "react";
 import StarRating from "./StarRating";
 import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 
 function ProductCard({ title, price, rating, image }) {
+  const dispatch = useDispatch();
+  const AddToCartProduct = ({ id, title, image, price }) => {
+    dispatch(addToCart({ id, title, image, price }));
+  };
+
   return (
     <div className="w-[200px] h-auto flex-shrink-0">
       <div className="bg-gray-700 border rounded-xl pb-2 shadow-lg shadow-gray-700">
@@ -17,7 +23,10 @@ function ProductCard({ title, price, rating, image }) {
           <p className="text-left px-2"> ₹{price}</p>
           <StarRating rating={rating} />
           <div className="flex px-1 gap-1">
-            <button className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-1 px-2 mx-1 text-sm">
+            <button
+              onClick={AddToCartProduct}
+              className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-1 px-2 mx-1 text-sm"
+            >
               <span>
                 <FiShoppingCart size={20} />
               </span>

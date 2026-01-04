@@ -2,6 +2,7 @@ import React from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function Header() {
   const categories = [
@@ -11,9 +12,16 @@ function Header() {
     "Books",
     "Home & Kitchen",
   ];
+
+  const cartItems = useSelector((state) => state.cart.product);
+  const totalValue = cartItems.reduce(
+    (sum, cartItems) => sum + cartItems.quantity,
+    0
+  );
+
   return (
     <header className="w-full text-white">
-      <nav className="w-full h-auto bg-gray-800 rounded-lg py-2 px-4">
+      <nav className="w-full h-auto bg-gray-800 rounded-t-lg py-2 px-4">
         <div className="flex flex-wrap justify-around">
           <div className="py-2">LOGO</div>
           <div className="w-3/5 realtive">
@@ -39,8 +47,8 @@ function Header() {
             <button className="hover:text-orange-400">
               <AiOutlineHeart size={24} />
             </button>
-            <button className="hover:text-orange-300">
-              <FiShoppingCart size={24} />
+            <button className="hover:text-orange-300 flex">
+              <FiShoppingCart size={24} /> ({totalValue})
             </button>
             <button className="py-2 hover:text-orange-300">
               <FaUserCircle size={24} />
@@ -48,6 +56,16 @@ function Header() {
           </div>
         </div>
       </nav>
+      <div className="w-full bg-gray-700 py-2 ">
+        <ul className="flex justify-around items-center text-gray-400 font-medium flex-wrap">
+          <li className="hover:text-gray-300">logo</li>
+          <li className="hover:text-gray-300">Electronics</li>
+          <li className="hover:text-gray-300">Fashion</li>
+          <li className="hover:text-gray-300">Books</li>
+          <li className="hover:text-gray-300">Sports</li>
+          <li className="hover:text-gray-300">Home & Kitchen</li>
+        </ul>
+      </div>
     </header>
   );
 }
