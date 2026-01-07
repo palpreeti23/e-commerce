@@ -1,9 +1,9 @@
 import React from "react";
 import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 
-function StarRating({ rating, max = 5 }) {
+function StarRating({ rating, max = 5, className = "" }) {
   return (
-    <div className="flex gap-1 pb-1 px-2 text-left">
+    <div className={`flex gap-1 pb-1 px-2 text-left ${className}`}>
       {[...Array(max)].map((_, index) => {
         let star = index + 1;
         if (rating >= star) {
