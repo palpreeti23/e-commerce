@@ -9,19 +9,14 @@ import { toggleWishList } from "../store/WishListSlice";
 import products from "../data/Products";
 
 function ProductCard({ product }) {
-  //   console.log("data", product);
   const dispatch = useDispatch();
   const wishList = useSelector((state) => state.wishlist.item);
   const wishlisted = wishList.some((item) => item.id === product.id);
 
-  //   const AddToCartProduct = ({ id, title, image, price }) => {
-  //     dispatch(addToCart({ id, title, image, price }));
-  //   };
-
   return (
     <div className="w-[200px] h-auto flex-shrink-0">
-      <div className="bg-gray-700 border rounded-xl pb-2 shadow-lg shadow-gray-700">
-        <div className="flex flex-col text-gray-300 ">
+      <div className="bg-gray-100 border rounded-xl pb-2 shadow-lg shadow-gray-500">
+        <div className="flex flex-col text-gray-700 ">
           <Link to={`/product/${product.id}`}>
             <div className="">
               <img
@@ -40,7 +35,7 @@ function ProductCard({ product }) {
           <div className="flex px-1 gap-1">
             <button
               onClick={() => dispatch(addToCart(product))}
-              className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-1 px-2 mx-1 text-sm"
+              className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-2 text-center px-2 mx-1 text-sm text-gray-200"
             >
               <span>
                 <FiShoppingCart size={20} />
@@ -49,7 +44,7 @@ function ProductCard({ product }) {
             </button>
             <button
               onClick={() => dispatch(toggleWishList(product))}
-              className={`py-1 px-2 bg-gray-600 rounded hover:text-orange-400 ${
+              className={`py-1 px-2 bg-gray-300 rounded hover:text-orange-400 ${
                 wishlisted ? "text-orange-500" : "text-gray-500"
               }`}
             >
