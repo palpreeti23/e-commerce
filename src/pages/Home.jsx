@@ -13,13 +13,14 @@ function Home() {
   console.log("selected", selectCategory);
   return (
     <main className="overflow-y-auto flex-1 ">
-      <div className="w-full h-[100vh] bg-gray-600 flex flex-col flex-wrap rounded overflow-y-auto hide-scrollbar">
+      <div className="w-full h-[100vh] bg-gray-100 flex flex-col flex-wrap rounded overflow-y-auto hide-scrollbar">
         <div className="w-full h-[60%] ">
           <img
             className="w-full h-90 rounded"
             src="src/img/bgsale.jpg"
             alt=""
           />
+          {/* <div className="bg-gray-100"></div> */}
         </div>
         <div className="h-[40%]">
           <ProductList products={productCategory} />
