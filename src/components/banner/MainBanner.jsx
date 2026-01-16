@@ -1,8 +1,9 @@
 import React from "react";
 import products from "../../data/Products";
+import { Link } from "react-router-dom";
 
 function MainBanner() {
-  const productImg = products[6];
+  const productImg = products[9];
   return (
     <div className=" w-full h-auto bg-blue-100 shadow shadow-lg shadow-gray-300 rounded-lg">
       <div className="w-full h-80 flex items-center">
@@ -13,9 +14,11 @@ function MainBanner() {
           <p className=" text-gray-700 my-1 text-sm w-60 text-left">
             DISCOVER UNBEATABLE DEALS ON TRENDY CLOTHING
           </p>
-          <button className="px-3 py-2 border rounded-lg bg-black text-white text-sm my-2 mr-35">
-            Shop Now
-          </button>
+          <Link to={`/itemspage`}>
+            <button className="px-3 py-2 border rounded-lg bg-black text-white text-sm my-2 mr-35">
+              Shop Now
+            </button>
+          </Link>
         </div>
         <div className="w-1/3 ">
           <img

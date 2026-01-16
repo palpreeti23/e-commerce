@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "../store/CartSlice";
 import { toggleWishList } from "../store/WishListSlice";
-import products from "../data/Products";
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
@@ -14,25 +13,25 @@ function ProductCard({ product }) {
   const wishlisted = wishList.some((item) => item.id === product.id);
 
   return (
-    <div className="w-[200px] h-auto flex-shrink-0">
-      <div className="bg-gray-100 border rounded-xl pb-2 shadow-lg shadow-gray-500">
-        <div className="flex flex-col text-gray-700 ">
+    <div className="w-[220px] h-auto flex-shrink-0">
+      <div className="bg-gray-100  rounded-lg pb-2 shadow shadow-gray-300">
+        <div className="flex flex-col text-gray-700">
           <Link to={`/product/${product.id}`}>
-            <div className="">
+            <div className="py-1">
               <img
-                className="w-full h-30 object-cover rounded-xl"
+                className="w-full h-35 object-cover rounded-xl"
                 src={product.image}
                 alt="product image"
               />
 
-              <h2 className="text-lg font-medium text-left px-2">
+              <h2 className="text-lg font-medium text-left px-4 p">
                 {product.title}
               </h2>
-              <p className="text-left px-2"> ₹{product.price}</p>
-              <StarRating rating={product.rating} />
+              <p className="text-left px-4 py-1"> ₹{product.price}</p>
+              <StarRating rating={product.rating} className="px-4" />
             </div>
           </Link>
-          <div className="flex px-1 gap-1">
+          <div className="flex px-3 gap-1 ">
             <button
               onClick={() => dispatch(addToCart(product))}
               className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-2 text-center px-2 mx-1 text-sm text-gray-200"
