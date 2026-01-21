@@ -1,12 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import products from "../data/Products";
+
+const orderedItem = JSON.parse(localStorage.getItem("orders")) || [];
 
 const initialState = {
   products: JSON.parse(localStorage.getItem("cart")) || [],
+  orders: orderedItem,
+  buyNow: JSON.parse(localStorage.getItem("buyNowItem")) || null,
+  payment: JSON.parse(localStorage.getItem("payment")) || null,
 };
 
 const saveCart = (products) => {
   localStorage.setItem("cart", JSON.stringify(products));
+};
+
+const saveBuyNow = (product) => {
+  localStorage.setItem("buyNowItem", JSON.stringify(product));
 };
 
 const CartSlice = createSlice({
@@ -49,9 +57,64 @@ const CartSlice = createSlice({
       }
       saveCart(state.products);
     },
+
+    setBuyNow: (state, action) => {
+      state.buyNow = { ...action.payload, quantity: 1 };
+      saveBuyNow(state.buyNow);
+    },
+
+    increaseQntInBuy: (state, action) => {
+      if (state.buyNow) {
+        state.buyNow.quantity += 1;
+        saveBuyNow(state.buyNow);
+      }
+    },
+
+    decreaseQntInBuy: (state, action) => {
+      if (state.buyNow && state.buyNow.quantity > 1) {
+        state.buyNow.quantity -= 1;
+        saveBuyNow(state.buyNow);
+      }
+    },
+    removeBuyNow: (state, action) => {
+      state.buyNow = null;
+      saveBuyNow(state.buyNow);
+    },
+    placeOrder: (state, action) => {
+      if (!state.buyNow) return;
+
+      state.orders.push({
+        id: Date.now(),
+        items: [state.buyNow],
+        total: state.buyNow.price * state.buyNow.quantity,
+        createdAt: new Date().toISOString(),
+      });
+
+      state.products = state.products.filter((items) => {
+        items.id !== action.payload;
+      });
+
+      saveCart(state.products);
+      localStorage.setItem("orders", JSON.stringify(state.orders));
+    },
+
+    setPayment: (state, action) => {
+      state.payment = action.payload;
+      localStorage.setItem("payment", JSON.stringify(action.payload));
+    },
   },
 });
 
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } =
-  CartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+  setBuyNow,
+  removeBuyNow,
+  placeOrder,
+  increaseQntInBuy,
+  decreaseQntInBuy,
+  setPayment,
+} = CartSlice.actions;
 export default CartSlice.reducer;

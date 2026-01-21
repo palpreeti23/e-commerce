@@ -1,13 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const storeUser = JSON.parse(localStorage.getItem("user"));
+const storeAddress = JSON.parse(localStorage.getItem("address"));
+
 const initialState = {
-  isAuthenticated: false,
-  user: {
-    name: "preeti",
-    email: "preeti@gmail.com",
-    password: 12345678,
-  },
-  address: [],
+  isAuthenticated: !!storeUser,
+  users: storeUser,
+  address: storeAddress || [],
 };
 
 const userSlice = createSlice({
@@ -16,23 +15,36 @@ const userSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state.isAuthenticated = true;
-      state.user = action.payload;
+      state.users = action.payload;
+      localStorage.setItem("user", JSON.stringify(action.payload));
     },
 
     logout: (state, action) => {
-      (state.isAuthenticated = false), (state.user = null);
+      state.isAuthenticated = false;
+      state.users = null;
+      localStorage.removeItem("user");
     },
     addAddress: (state, action) => {
       state.address.push(action.payload);
+      localStorage.setItem("address", JSON.stringify(state.address));
     },
     updateUserName: (state, action) => {
-      state.user.name = action.payload;
+      state.users.name = action.payload;
+      localStorage.setItem("users", JSON.stringify(state.users));
     },
     updateUserEmail: (state, action) => {
-      state.user.email = action.payload;
+      state.users.email = action.payload;
+      localStorage.setItem("users", JSON.stringify(state.users));
     },
     updatePassword: (state, action) => {
-      state.user.password = action.payload;
+      const users = JSON.parse(localStorage.getItem(users));
+      const findUser = users.find((useremail) =>
+        useremail.email === state.users.email
+          ? { ...useremail, password: action.payload }
+          : useremail
+      );
+
+      localStorage.setItem("users", JSON.stringify(findUser));
     },
   },
 });
