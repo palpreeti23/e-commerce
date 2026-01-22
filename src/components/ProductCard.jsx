@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "../store/CartSlice";
 import { toggleWishList } from "../store/WishListSlice";
+import { showAlert } from "../store/Alert";
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
@@ -13,13 +14,13 @@ function ProductCard({ product }) {
   const wishlisted = wishList.some((item) => item.id === product.id);
 
   return (
-    <div className="w-[220px] h-auto flex-shrink-0">
+    <div className="w-[250px] h-auto flex-shrink-0">
       <div className="bg-gray-100  rounded-lg pb-2 shadow shadow-gray-300">
         <div className="flex flex-col text-gray-700">
           <Link to={`/product/${product.id}`}>
             <div className="py-1">
               <img
-                className="w-full h-35 object-cover rounded-xl"
+                className="w-full h-50 object-cover rounded-xl"
                 src={product.image}
                 alt="product image"
               />
@@ -31,9 +32,12 @@ function ProductCard({ product }) {
               <StarRating rating={product.rating} className="px-4" />
             </div>
           </Link>
-          <div className="flex px-3 gap-1 ">
+          <div className="flex px-3 gap-1 mb-3 ">
             <button
-              onClick={() => dispatch(addToCart(product))}
+              onClick={() => {
+                dispatch(addToCart(product));
+                dispatch(showAlert({ message: "Added to the cart!" }));
+              }}
               className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-2 text-center px-2 mx-1 text-sm text-gray-200"
             >
               <span>
@@ -42,7 +46,10 @@ function ProductCard({ product }) {
               <p className=""> Add To Cart</p>
             </button>
             <button
-              onClick={() => dispatch(toggleWishList(product))}
+              onClick={() => {
+                dispatch(toggleWishList(product));
+                dispatch(showAlert({ message: "Added to the wishlist!" }));
+              }}
               className={`py-1 px-2 bg-gray-300 rounded hover:text-orange-400 ${
                 wishlisted ? "text-orange-500" : "text-gray-500"
               }`}

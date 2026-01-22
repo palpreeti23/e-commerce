@@ -1,19 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    // <div className="w-full h-90 bg-gray-800 rounded pt-20">
-    <div className="w-full h-90 bg-gradient-to-t from-gray-950 to-gray-700 rounded flex justify-center items-center py-5">
-      <div className=" w-[90%] h-65 bg-gray-800 rounded-lg text-gray-400">
+    <div className="w-full h-122 bg-gradient-to-t from-gray-950 to-gray-700 rounded flex justify-center items-center py-5">
+      <div className=" w-[90%] h-auto py-3 bg-gray-800 rounded-lg text-gray-400">
         <div className="flex flex-col">
-          <div className="px-10 pt-5 pb-2 text-gray-300 text-xl text-left">
-            LOGO
+          <div className="w-[18%] h-auto  mt-2">
+            <img
+              className="w-full h-12 object-cover"
+              src="src/img/logo2.png"
+              alt="Preetify"
+            />
           </div>
           <span className=" border-gray-600 border-b-2 px-5 w-[92%] mx-auto"></span>
-          <p className="text-left px-10 pb-2 pt-1 text-gray-500 text-sm">
+          <p className="text-left pl-15 pb-2 pt-1 text-gray-500 text-sm">
             Smart deals on Electronics you'll love.
           </p>
-          <div className="flex justify-between  py-2 w-[90%] px-8 space-x-2">
+          <div className="flex justify-around mx-auto  py-2 w-[90%] space-x-2">
             <div className="flex flex-col text-left px-3 flex-wrap flex-1">
               <h3 className="text-lg text-gray-300 pb-1 ">About Preetify</h3>
               <p className="text-gray-500">
@@ -24,9 +28,18 @@ function Footer() {
             <div className="flex flex-col text-left px-3 flex-wrap flex-1">
               <h3 className="text-gray-300 pb-1 text-lg">Quick Links</h3>
               <ul className="flex flex-col space-y-1 list-disc px-5 text-sm">
-                <li>Home</li>
-                <li>Products</li>
-                <li>Categories</li>
+                <Link to={`/`}>
+                  <li>Home</li>
+                </Link>
+                <Link to={"/wishlist"}>
+                  <li>Wishlist</li>
+                </Link>
+                <Link to={"/cart"}>
+                  <li>Cart</li>
+                </Link>
+                <Link to={"/orders"}>
+                  <li>Orders</li>
+                </Link>
               </ul>
             </div>
             <span className="border-r-2 border-gray-600 h-25 w-[1px] "></span>
@@ -60,13 +73,12 @@ function Footer() {
           </div>
 
           <span className=" border-gray-600 border-b-2 px-5 w-[92%] mx-auto"></span>
-          <p className="py-3 text-gray-500 text-sm">
+          <p className="pt-1 text-gray-500 text-sm">
             &copy;2026 Preetify, All rights reserved
           </p>
         </div>
       </div>
     </div>
-    // </div>
   );
 }
 

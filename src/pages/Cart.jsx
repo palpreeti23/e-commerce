@@ -13,7 +13,7 @@ function Cart() {
 
   return (
     <div className="flex flex-col text-gray-800  h-[100vh] bg-gray-100  overflow-y-auto">
-      <h2 className=" text-2xl text-left py-3 px-4 font-medium ">
+      <h2 className=" text-2xl text-left py-3 px-8 font-medium ">
         Shopping Cart
       </h2>
       <span className="w-full h-[1px] border-b-2 border-gray-400 "></span>

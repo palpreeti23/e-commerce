@@ -1,11 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react";
 
-const storeUser = JSON.parse(localStorage.getItem("user"));
+const storeUser = JSON.parse(localStorage.getItem("users"));
 const storeAddress = JSON.parse(localStorage.getItem("address"));
+const authUser = JSON.parse(localStorage.getItem("user"));
+
+const storeUserArray = storeUser
+  ? Array.isArray(storeUser)
+    ? storeUser
+    : [storeUser] // wrap single object in array
+  : [];
 
 const initialState = {
-  isAuthenticated: !!storeUser,
-  users: storeUser,
+  isAuthenticated: !!authUser,
+  user: authUser,
+  users: storeUserArray,
   address: storeAddress || [],
 };
 
@@ -13,6 +22,13 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    addUser: (state, action) => {
+      state.users.push(action.payload);
+      localStorage.setItem("users", JSON.stringify(state.users));
+      state.isAuthenticated = true;
+      state.user = action.payload;
+      localStorage.setItem("user", JSON.stringify(state.user));
+    },
     login: (state, action) => {
       state.isAuthenticated = true;
       state.users = action.payload;
@@ -56,5 +72,6 @@ export const {
   updateUserEmail,
   updateUserName,
   addAddress,
+  addUser,
 } = userSlice.actions;
 export default userSlice.reducer;

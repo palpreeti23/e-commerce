@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import users from "../data/Users";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, addUser } from "../store/UserSlice";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -9,52 +11,59 @@ function Signup() {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.user.users) || [];
 
   const submitHandler = () => {
-    const user = users.find(
-      (data) => data.email === email && data.password === password
-    );
-    if (!user) {
-      setError("invalid email and password");
+    if (!name || !email || !password) {
+      alert("fill all the fields");
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("isLoggedIn", "true");
+    const existingUser = users.find((userEmail) => userEmail.email === email);
+    if (existingUser) {
+      alert("user already exists");
+      return;
+    }
 
-    navigate("/profile");
+    const newUser = { name, email, password };
+    dispatch(addUser(newUser));
+    navigate(`/`);
   };
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <div className="w-[40%] bg-gray-300 rounded py-4 px-3 shadow-xl shadow-gray-900">
-        <div className="flex flex-col space-y-5 items-center">
-          <h2 className="py-1 text-center text-2xl text-gray-800">Signup</h2>
+      <div className="w-[30%] bg-gray-200 rounded-lg py-4 px-3 shadow-xl shadow-gray-900">
+        <div className="flex flex-col  items-center">
+          <h2 className="text-center text-2xl text-gray-800">Sign up</h2>
+          <p className="text-sm text-center pb-3 text-gray-600 ">
+            signup to continue
+          </p>
           <input
             type="text"
-            placeholder="Name"
-            className="w-6/7 rounded text-gray-700 px-3 py-2 border"
+            placeholder="Entee Name"
+            className="w-6/7 rounded text-gray-700 px-3 py-2 border border-gray-400 mb-3"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Email"
-            className="w-6/7 rounded text-gray-700 px-3 py-2 border"
+            placeholder="Enter Email"
+            className="w-6/7 rounded text-gray-700 px-3 py-2 border border-gray-400 mb-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="number"
-            placeholder="Password"
-            className="w-6/7 rounded text-gray-700 px-3 py-2 border"
+            placeholder="Enter Password"
+            className="w-6/7 rounded text-gray-700 px-3 py-2 mb-3 border border-gray-400"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           {error && <p className="text-red-600">{error}</p>}
           <button
             onClick={submitHandler}
-            className="bg-blue-600 rounded-lg py-2 px-3 text-white w-1/4 hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800"
+            className="bg-blue-600 rounded py-2 px-3 w-6/7 mb-3 text-white hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800"
           >
             Signup
           </button>
@@ -62,7 +71,7 @@ function Signup() {
           <p className="text-gray-800 text-sm">
             Already have an account?
             <Link to={`/login`}>
-              <span className="text-gray-600 underline underline-offset-1 px-1 hover:text-gray-800">
+              <span className="text-gray-600 mb-3 underline underline-offset-1 px-1 hover:text-gray-800">
                 Login
               </span>
             </Link>

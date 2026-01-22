@@ -1,23 +1,15 @@
-import React, { Children } from "react";
+import React, { Children, useState } from "react";
 import Header from "./Header/Header";
-import Sidebar from "./Sidebar";
-import Footer from "./Footer/Footer";
 import { Outlet } from "react-router-dom";
 
 function Layout() {
+  const [searchQuery, setSearchQuery] = useState("");
   return (
     <div className="w-full flex flex-col">
-      <Header />
-
-      {/* <Sidebar /> */}
-      <div className="flex flex-1 ">
-        <Sidebar />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-      </div>
-
-      <Footer />
+      <Header setSearchQuery={setSearchQuery} />
+      <main className="flex-1">
+        <Outlet context={{ searchQuery, setSearchQuery }} />
+      </main>
     </div>
   );
 }

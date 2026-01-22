@@ -12,12 +12,12 @@ const AlertSlice = createSlice({
   initialState,
   reducers: {
     showAlert: (state, action) => {
-      state.alert.show = true;
-      state.alert.message = action.payload;
+      state.alertCard.show = true;
+      state.alertCard.message = action.payload.message;
     },
     hideAlert: (state, action) => {
-      state.alert.show = false;
-      state.alert.message = "";
+      state.alertCard.show = false;
+      state.alertCard.message = "";
     },
   },
 });

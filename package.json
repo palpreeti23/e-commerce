@@ -11,10 +11,16 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
+    "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "autoprefixer": "^10.4.23",
+    "lightningcss": "^1.30.2",
+    "postcss": "^8.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.11.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

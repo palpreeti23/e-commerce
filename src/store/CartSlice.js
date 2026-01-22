@@ -90,9 +90,11 @@ const CartSlice = createSlice({
         createdAt: new Date().toISOString(),
       });
 
-      state.products = state.products.filter((items) => {
-        items.id !== action.payload;
-      });
+      state.products = state.products.filter(
+        (items) => items.id !== state.buyNow.id
+      );
+      state.buyNow = null;
+      saveBuyNow(state.buyNow);
 
       saveCart(state.products);
       localStorage.setItem("orders", JSON.stringify(state.orders));

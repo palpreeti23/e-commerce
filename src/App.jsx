@@ -1,23 +1,37 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.css";
-import { Layout } from "./components";
+import { Layout, Login, Signup, Profile } from "./components";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import WishList from "./pages/WishList";
+import ItemsPage from "./pages/ItemsPage";
+import AlertCard from "./AlertCard";
+import Order from "./pages/Order";
+import Summary from "./pages/Summary";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
     <BrowserRouter>
+      <AlertCard />
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/itemspage" element={<ItemsPage />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/wishlist" element={<WishList />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/order" element={<Order />} />
+            <Route path="/summary" element={<Summary />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
