@@ -5,14 +5,12 @@ import { useSelector } from "react-redux";
 import { useOutletContext } from "react-router-dom";
 
 function ItemsPage() {
-  // const { searchQuery, setSearchQuery } = useOutletContext() || {};
   const outletContext = useOutletContext() || {};
   const searchQuery = outletContext.searchQuery ?? "";
   const setSearchQuery = outletContext.setSearchQuery ?? (() => {});
   const selectCategory = useSelector((state) => state.filter.category);
   let finalproduct = products;
 
-  console.log(finalproduct);
   useEffect(() => {
     if (selectCategory !== "All") {
       setSearchQuery("");
@@ -23,13 +21,14 @@ function ItemsPage() {
     finalproduct = finalproduct.filter(
       (product) => product.category === selectCategory
     );
+
+    console.log(finalproduct);
   }
 
   if (searchQuery !== "") {
     finalproduct = finalproduct.filter((product) =>
       product.title?.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    console.log(finalproduct);
   }
 
   let itemCat = "";

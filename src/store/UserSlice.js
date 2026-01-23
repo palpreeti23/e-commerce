@@ -37,7 +37,7 @@ const userSlice = createSlice({
 
     logout: (state, action) => {
       state.isAuthenticated = false;
-      state.users = null;
+      state.user = null;
       localStorage.removeItem("user");
     },
     addAddress: (state, action) => {
@@ -45,15 +45,15 @@ const userSlice = createSlice({
       localStorage.setItem("address", JSON.stringify(state.address));
     },
     updateUserName: (state, action) => {
-      state.users.name = action.payload;
-      localStorage.setItem("users", JSON.stringify(state.users));
+      state.user.name = action.payload;
+      localStorage.setItem("users", JSON.stringify(state.user));
     },
     updateUserEmail: (state, action) => {
-      state.users.email = action.payload;
-      localStorage.setItem("users", JSON.stringify(state.users));
+      state.user.email = action.payload;
+      localStorage.setItem("users", JSON.stringify(state.user));
     },
     updatePassword: (state, action) => {
-      const users = JSON.parse(localStorage.getItem(users));
+      const users = JSON.parse(localStorage.getItem("users"));
       const findUser = users.find((useremail) =>
         useremail.email === state.users.email
           ? { ...useremail, password: action.payload }

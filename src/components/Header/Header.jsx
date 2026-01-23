@@ -22,8 +22,10 @@ function Header({ setSearchQuery }) {
     if (!trimQuery) return;
     setSearchQuery(trimQuery);
     dispatch(setCategory("All"));
-    setQuery("");
     navigate(`/itemspage`);
+    setQuery("");
+
+    // console.log(trimQuery);
   };
 
   const categories = [
@@ -165,93 +167,6 @@ function Header({ setSearchQuery }) {
               </div>
             </div>
           )}
-
-          {/* <div className="flex flex-wrap w-[55%] justify-around py-2">
-            <div className=" realtive w-[98%]">
-              <form
-                className="flex w-full  rounded-lg focus-within:ring-2 focus-within:outline-none focus-within:border-gray-500 focus-within:ring-orange-300  "
-                onSubmit={submitHandle}
-              >
-                <input
-                  className="bg-gray-600 w-[94%] py-2 px-3 rounded-l-lg flex-1 focus:outline-none"
-                  type="text"
-                  placeholder="Search here..."
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-                <button
-                  type="submit"
-                  className="bg-orange-400 px-1 py-2 text-white rounded-r-lg w-[6%]  "
-                >
-                  <FaSearch size={24} className="mx-1" />
-                </button>
-              </form>
-            </div>
-          </div>
-
-          <div className="flex justify-around items-center px-2 w-[30%]">
-            <NavLink
-              to={`/wishlist`}
-              className={({ isActive }) =>
-                isActive ? "text-orange-400" : "text-gray-100"
-              }
-            >
-              <button className="flex flex-col items-center leading-none ">
-                <div className="flex items-center gap-0">
-                  <AiOutlineHeart size={24} className="hover:text-orange-400" />
-                  <p className="text-sm text-left mb-3 leading-none bg-orange-400 shadow shadow-orange-500  px-1 rounded-2xl">
-                    {wishlist}
-                  </p>
-                </div>
-                <p className="text-sm m-0 leading-none">wishlist</p>
-              </button>
-            </NavLink>
-
-            <NavLink
-              to={`/cart`}
-              className={({ isActive }) =>
-                isActive ? "text-orange-400" : "text-gray-100"
-              }
-            >
-              <button className=" flex flex-col items-center ">
-                <div className="flex items-center gap-0">
-                  <FiShoppingCart size={24} className="hover:text-orange-400" />
-                  <p className="text-xs bg-orange-400 shadow shadow-orange-500  rounded-2xl mb-3 px-1 text-left">
-                    {totalValue}
-                  </p>
-                </div>
-                <p className="text-sm m-0 leading-none">Cart</p>
-              </button>
-            </NavLink>
-
-            <NavLink
-              to={`/profile`}
-              className={({ isActive }) =>
-                isActive ? "text-orange-400" : "text-gray-100"
-              }
-            >
-              <button className="py-2 hover:text-orange-300">
-                <div className="flex flex-col items-center">
-                  <FaUserCircle size={24} />
-                  <p className="text-sm m-0 leading-none pt-1">Profile</p>
-                </div>
-              </button>
-            </NavLink>
-
-            <NavLink
-              to={`/summary`}
-              className={({ isActive }) =>
-                isActive ? "text-orange-400" : "text-gray-100"
-              }
-            >
-              <button className="py-2 hover:text-orange-300 ">
-                <div className="flex flex-col items-center">
-                  <FaClipboardList size={24} />
-                  <p className="text-sm m-0 leading-none pt-1">orders</p>
-                </div>
-              </button>
-            </NavLink>
-          </div> */}
         </div>
       </nav>
 
@@ -272,10 +187,15 @@ function Header({ setSearchQuery }) {
             {categories.map((items) => (
               <li
                 key={items}
-                onClick={() => dispatch(setCategory(items))}
+                onClick={() => {
+                  dispatch(setCategory(items));
+                  navigate(`/itemspage`);
+                }}
                 className="hover:text-gray-300"
               >
-                <Link to={`/itemspage`}> {items}</Link>
+                {/* <Link to={`/itemspage`}> */}
+                {items}
+                {/* </Link> */}
               </li>
             ))}
           </ul>

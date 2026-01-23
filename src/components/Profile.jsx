@@ -254,7 +254,19 @@ function Profile() {
           </div>
         </div>
       </div>
-      {showAdd && <AddressForm onClose={() => setShowAdd(false)} />}
+      {showAdd && (
+        <div
+          className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center"
+          onClick={() => setShowAdd(false)}
+        >
+          <div
+            className=" p-6 w-[90%] max-w-md shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <AddressForm onClose={() => setShowAdd(false)} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

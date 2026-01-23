@@ -22,7 +22,7 @@ function AlertCard() {
   }
 
   return (
-    <div className="fixed z-50 w-80 left-1/2 transform -translate-x-1/2 ">
+    <div className="fixed z-50 w-84 left-1/2 transform -translate-x-1/2 ">
       <div className=" py-5 rounded bg-white text-gray-700  text-medium  shadow">
         <p className=" flex items-center px-6">
           <FaCheckCircle size={20} className="text-green-500 mx-1 " />

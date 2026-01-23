@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
   const [searchQuery, setSearchQuery] = useState("");
+
+  console.log(searchQuery);
   return (
     <div className="w-full flex flex-col">
       <Header setSearchQuery={setSearchQuery} />
