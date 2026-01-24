@@ -52,7 +52,7 @@ function Header({ setSearchQuery }) {
             <img
               className="w-full h-full object-cover"
               src="src/img/logo2.png"
-              alt="Preetify"
+              alt=""
             />
           </div>
 

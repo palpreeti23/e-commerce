@@ -10,7 +10,7 @@ function Footer() {
             <img
               className="w-full h-12 object-cover"
               src="src/img/logo2.png"
-              alt="Preetify"
+              alt=""
             />
           </div>
           <span className=" border-gray-600 border-b-2 px-5 w-[92%] mx-auto"></span>
