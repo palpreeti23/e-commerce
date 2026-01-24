@@ -78,7 +78,7 @@ function Profile() {
                 ))}
               </ul>
             ) : (
-              <p>add address</p>
+              <p className="px-3">add address</p>
             )}
           </div>
         </div>
