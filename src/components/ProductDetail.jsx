@@ -24,15 +24,15 @@ function ProductDetail() {
   return (
     <div className="w-full h-auto bg-gray-200 text-gray-700 ">
       <div className="flex flex-col flex-wrap ">
-        <div className="flex justify-between bg-gray-100 mt-3 mb-5">
-          <div className="w-[30%] h-auto flex justify-center items-center ">
+        <div className="flex flex-col justify-around md:flex-row bg-gray-100 mt-3 mb-5">
+          <div className="w-full md:w-[30%] h-auto flex justify-center items-center  ">
             <img
               className="w-full h-auto object-contain rounded"
               src={productInfo.image}
               alt="image"
             />
           </div>
-          <div className="flex flex-col text-left py-2 w-2/3">
+          <div className="flex flex-col text-left py-2 w-full md:w-2/3 px-5">
             <h2 className="font-bold text-2xl py-2">{productInfo.title}</h2>
             <p className=" text-orange-400 text-lg">₹{productInfo.price}</p>
             <p className="text-red-400">{productInfo.discount}% Off</p>
@@ -50,7 +50,7 @@ function ProductDetail() {
                 dispatch(addToCart(productInfo));
                 dispatch(showAlert({ message: "Added to the cart!" }));
               }}
-              className="w-1/4 bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex justify-center gap-1 py-1 px-4 mx-1 my-2 flex-wrap"
+              className="w-2/3 md:w-1/4 bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex justify-center gap-1 py-1 px-4 mx-1 my-2 flex-wrap"
             >
               <span>
                 <FiShoppingCart size={20} />
@@ -60,7 +60,7 @@ function ProductDetail() {
 
             <button
               onClick={handleBuyNow}
-              className="w-1/4 bg-yellow-400 hover:bg-yellow-500 shadow-sm shadow-yellow-500 rounded py-1 px-4 mx-1 my-2 text-center "
+              className="w-2/3 md:w-1/4 bg-yellow-400 hover:bg-yellow-500 shadow-sm shadow-yellow-500 rounded py-1 px-4 mx-1 my-2 text-center "
             >
               Buy Now
             </button>

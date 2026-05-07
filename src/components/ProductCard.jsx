@@ -48,7 +48,13 @@ function ProductCard({ product }) {
             <button
               onClick={() => {
                 dispatch(toggleWishList(product));
-                dispatch(showAlert({ message: "Added to the wishlist!" }));
+                dispatch(
+                  showAlert({
+                    message: wishlisted
+                      ? "Removed from wishlist!"
+                      : "Added to wishlist!",
+                  }),
+                );
               }}
               className={`py-1 px-2 bg-gray-300 rounded hover:text-orange-400 ${
                 wishlisted ? "text-orange-500" : "text-gray-500"
