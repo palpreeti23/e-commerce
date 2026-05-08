@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react";
 
 const storeUser = JSON.parse(localStorage.getItem("users"));
 const storeAddress = JSON.parse(localStorage.getItem("address"));
@@ -57,7 +56,7 @@ const userSlice = createSlice({
       const findUser = users.find((useremail) =>
         useremail.email === state.users.email
           ? { ...useremail, password: action.payload }
-          : useremail
+          : useremail,
       );
 
       localStorage.setItem("users", JSON.stringify(findUser));

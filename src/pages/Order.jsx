@@ -16,12 +16,13 @@ import { showAlert } from "../store/Alert";
 
 function Order() {
   const { address } = useSelector((state) => state.user);
-  const { users } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const { buyNow } = useSelector((state) => state.cart);
   const selectedMethod = useSelector((state) => state.cart.payment);
   const [show, setShow] = useState(false);
 
   const total = buyNow.price * buyNow.quantity;
+  console.log(user);
 
   const addresses = address[0];
   const dispatch = useDispatch();
@@ -86,9 +87,9 @@ function Order() {
               </div>
 
               <h2 className="text-main-text font-semibold ml-11">
-                {users.name}
+                {user.name}
               </h2>
-              <p className="mx-11 text-main-text">{users.email}</p>
+              <p className="mx-11 text-main-text">{user.email}</p>
             </div>
           </div>
 
@@ -216,7 +217,7 @@ function Order() {
                           className="mx-1 border rounded-2xl bg-gray-400 mt-1"
                         />
                         <p className="text-gray-700 dark:text-gray-200 text-lg">
-                          {users.name}
+                          {user.name}
                         </p>
                       </div>
                       <p className="text-gray-600 dark:text-gray-200 text-left px-3 w-[85%] border border-gray-400 bg-gray-200 dark:bg-gray-600 mx-auto rounded my-2">

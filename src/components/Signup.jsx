@@ -33,30 +33,30 @@ function Signup() {
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <div className="w-[30%] bg-gray-200 rounded-lg py-4 px-3 shadow-xl shadow-gray-900">
+      <div className="w-[30%] bg-gray-100 dark:bg-gray-700 rounded-lg py-4 px-3 shadow-xl shadow-gray-400 dark:shadow-none">
         <div className="flex flex-col  items-center">
-          <h2 className="text-center text-2xl text-gray-800">Sign up</h2>
-          <p className="text-sm text-center pb-3 text-gray-600 ">
+          <h2 className="text-center text-2xl text-main-text">Sign up</h2>
+          <p className="text-sm text-center pb-3 text-gray-600 dark:text-gray-400 ">
             signup to continue
           </p>
           <input
             type="text"
             placeholder="Entee Name"
-            className="w-6/7 rounded text-gray-700 px-3 py-2 border border-gray-400 mb-3"
+            className="w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="text"
             placeholder="Enter Email"
-            className="w-6/7 rounded text-gray-700 px-3 py-2 border border-gray-400 mb-3"
+            className="w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="number"
             placeholder="Enter Password"
-            className="w-6/7 rounded text-gray-700 px-3 py-2 mb-3 border border-gray-400"
+            className="w-6/7 rounded text-main-text px-3 py-2 mb-3 border border-gray-400"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -68,10 +68,10 @@ function Signup() {
             Signup
           </button>
 
-          <p className="text-gray-800 text-sm">
+          <p className="text-gray-800 dark:text-gray-300 text-sm">
             Already have an account?
             <Link to={`/login`}>
-              <span className="text-gray-600 mb-3 underline underline-offset-1 px-1 hover:text-gray-800">
+              <span className="text-gray-600 dark:text-gray-200 mb-3 underline underline-offset-1 px-1 hover:text-gray-800">
                 Login
               </span>
             </Link>
