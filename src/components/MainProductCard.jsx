@@ -36,10 +36,10 @@ function MainProductCard({ product }) {
   return (
     <div className="w-[240px] h-[320px] flex-shrink-0 mt-6">
       <Link to={`/product/${product.id}`}>
-        <div className="w-full h-full rounded-xl overflow-hidden shadow-lg bg-white">
+        <div className="w-full h-full rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-900">
           {/* Top Title Section (white background) */}
-          <div className="h-14 flex items-center justify-center border-b border-gray-100">
-            <h2 className="text-lg font-semibold text-gray-700 capitalize">
+          <div className="h-14 flex items-center justify-center border-b border-gray-100 dark:border-gray-700">
+            <h2 className="text-lg font-semibold text-main-text capitalize">
               {product.category}
             </h2>
           </div>

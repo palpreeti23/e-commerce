@@ -76,6 +76,26 @@ const products = [
   },
   {
     id: 5,
+    title: "White Hand Bag",
+    price: 2599,
+    image:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTGvTXql4jEMnBuFZNIk5GbppYOBa1E5m2ecHza3IbRstgcn1MSRR1QSCeEFbADJlYXM5BoUYtj8yUI4RWuQXp46nyLQBDQk_bI3Ab3sGE4_YHlzufAGItZEImyXxMV7ZElevOhjuhS&usqp=CAc",
+    rating: 4.0,
+    category: "Hand Bags",
+    description:
+      "A structured beige-toned handbag with a sleek silhouette and gold-tone detailing, designed to add a touch of elegance to everyday outfits. Its compact yet spacious build makes it perfect for both casual outings and semi-formal occasions, blending style with practicality.",
+
+    highlight: [
+      "Premium textured faux leather finish",
+      "Structured silhouette for a polished look",
+      "Gold-tone hardware accents",
+      "Compact yet spacious interior design",
+      "Versatile for daily wear and outings",
+    ],
+    discount: 20,
+  },
+  {
+    id: 6,
     title: "Smart Watch",
     price: 3999,
     image:
@@ -94,64 +114,7 @@ const products = [
     discount: 18,
   },
   {
-    id: 6,
-    title: "Asus Laptop",
-    price: 75999,
-    image:
-      "https://p4-ofp.static.pub//fes/cms/2024/07/17/nlp7hjbit9r7qbqb941hykxjino4f3761364.png",
-    rating: 4.7,
-    category: "Electronics",
-    description:
-      "High-performance laptop built for work, study, and entertainment. Delivers fast processing, smooth multitasking, and long-lasting reliability.",
-    highlight: [
-      "High-Performance Processor",
-      "SSD Storage",
-      "Full HD / 4K Display",
-      "Long Battery Life",
-      "Lightweight Design",
-    ],
-    discount: 20,
-  },
-  {
     id: 7,
-    title: "Smart Phones",
-    price: 25999,
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwnRqeZFU0hSUyV2J-z61t7Bm3gUusqsxhHg&s",
-    rating: 4.5,
-    category: "Electronics",
-    description:
-      "Fast, powerful smartphone designed for smooth performance and long battery life. Perfect for gaming, photography, and everyday multitasking.",
-    highlight: [
-      "AMOLED / OLED Display",
-      "Powerful Chipset",
-      "AI Camera System",
-      "Fast Charging",
-      "5G Connectivity",
-    ],
-    discount: 25,
-  },
-  {
-    id: 8,
-    title: "Checked Casual Shirt",
-    price: 1999,
-    image:
-      "https://campussutra.com/cdn/shop/files/CSMOVSRT7609_3_52eadbc3-3c06-4480-abda-47bf3a54c0dd.jpg?v=1730801146&width=2000",
-    rating: 4.3,
-    category: "Fashion",
-    description:
-      "A contemporary oversized check shirt blending relaxed comfort with bold pattern details, perfect for casual city looks or weekend hangouts. Crafted with attention to fit and styling for everyday confidence",
-    highlight: [
-      "Oversized casual fit",
-      "Lightweight, breathable fabric",
-      "Button-down closure",
-      "Relaxed everyday style",
-      "Easy to pair with jeans or trousers",
-    ],
-    discount: 34,
-  },
-  {
-    id: 9,
     title: "Long Bodycon Dress",
     price: 2999,
     image:
@@ -170,7 +133,65 @@ const products = [
     discount: 50,
   },
   {
+    id: 8,
+    title: "Air Conditioner",
+    price: 394,
+    image:
+      "https://www.globalbrandsmagazine.com/wp-content/uploads/2025/11/Top-Air-Conditioner-Brands-2025.webp",
+    rating: 4.0,
+    category: "Home & Kitchen",
+    description:
+      "Powerful air conditioner that delivers fast and efficient cooling. Designed to keep your home comfortable while saving energy.",
+    highlight: [
+      "Fast Cooling Technology",
+      "Energy Efficient Compressor",
+      "Silent Operation",
+      "Smart Temperature Control",
+      "Air Purification Filter",
+    ],
+    discount: 23,
+  },
+
+  {
+    id: 9,
+    title: "Checked Casual Shirt",
+    price: 1999,
+    image:
+      "https://campussutra.com/cdn/shop/files/CSMOVSRT7609_3_52eadbc3-3c06-4480-abda-47bf3a54c0dd.jpg?v=1730801146&width=2000",
+    rating: 4.3,
+    category: "Fashion",
+    description:
+      "A contemporary oversized check shirt blending relaxed comfort with bold pattern details, perfect for casual city looks or weekend hangouts. Crafted with attention to fit and styling for everyday confidence",
+    highlight: [
+      "Oversized casual fit",
+      "Lightweight, breathable fabric",
+      "Button-down closure",
+      "Relaxed everyday style",
+      "Easy to pair with jeans or trousers",
+    ],
+    discount: 34,
+  },
+  {
     id: 10,
+    title: "Asus Laptop",
+    price: 75999,
+    image:
+      "https://p4-ofp.static.pub//fes/cms/2024/07/17/nlp7hjbit9r7qbqb941hykxjino4f3761364.png",
+    rating: 4.7,
+    category: "Electronics",
+    description:
+      "High-performance laptop built for work, study, and entertainment. Delivers fast processing, smooth multitasking, and long-lasting reliability.",
+    highlight: [
+      "High-Performance Processor",
+      "SSD Storage",
+      "Full HD / 4K Display",
+      "Long Battery Life",
+      "Lightweight Design",
+    ],
+    discount: 20,
+  },
+  {
+    id: 11,
     title: "Long red dress",
     price: 2999,
     image:
@@ -189,7 +210,7 @@ const products = [
     discount: 50,
   },
   {
-    id: 11,
+    id: 12,
     title: "Maxi Dress",
     price: 3999,
     image:
@@ -208,7 +229,7 @@ const products = [
     discount: 43,
   },
   {
-    id: 12,
+    id: 13,
     title: "Oleander",
     price: 299,
     image:
@@ -227,11 +248,12 @@ const products = [
     discount: 13,
   },
   {
-    id: 13,
+    id: 14,
     title: "Small Bones",
     price: 399,
     image:
-      "https://m.media-amazon.com/images/I/51MZdPIY9QS.SX316.SY480._SL500_.jpg",
+      "https://images-eu.ssl-images-amazon.com/images/I/71-H0tZ9XSS._AC_UL210_SR210,210_.jpg",
+
     rating: 3.7,
     category: "Books",
     description:
@@ -246,7 +268,7 @@ const products = [
     discount: 11,
   },
   {
-    id: 14,
+    id: 15,
     title: "Older",
     price: 249,
     image: "https://cdn2.penguin.com.au/covers/original/9781464243950.jpg",
@@ -264,7 +286,7 @@ const products = [
     discount: 16,
   },
   {
-    id: 15,
+    id: 16,
     title: "King Of Greed",
     price: 394,
     image:
@@ -283,7 +305,7 @@ const products = [
     discount: 17,
   },
   {
-    id: 16,
+    id: 17,
     title: "Washing Machine",
     price: 40999,
     image:
@@ -302,11 +324,11 @@ const products = [
     discount: 31,
   },
   {
-    id: 17,
+    id: 18,
     title: "Mixer",
     price: 5999,
     image:
-      "https://mayer.sg/cdn/shop/files/Mayer-MMPC6062-PressureCooker-with-Ceramic-Pot.png?v=1725249070&width=800",
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT2CZRkKFRs4LHXc7yuIJNo9-hWetGFKgl_cgdHW9BqpeiE7KDman-QFp2zYqjedxo0xFJhWw5KDC2nPaGMM7rLddmorx_eQnGxiJgruD6T8XGnmUjxR2yYgAZ5mlxOB292g3VXgQ&usqp=CAc",
     rating: 4.0,
     category: "Home & Kitchen",
     description:
@@ -321,26 +343,26 @@ const products = [
     discount: 27,
   },
   {
-    id: 18,
-    title: "Air Conditioner",
-    price: 394,
+    id: 19,
+    title: "Smart Phones",
+    price: 25999,
     image:
-      "https://www.globalbrandsmagazine.com/wp-content/uploads/2025/11/Top-Air-Conditioner-Brands-2025.webp",
-    rating: 4.0,
-    category: "Home & Kitchen",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwnRqeZFU0hSUyV2J-z61t7Bm3gUusqsxhHg&s",
+    rating: 4.5,
+    category: "Electronics",
     description:
-      "Powerful air conditioner that delivers fast and efficient cooling. Designed to keep your home comfortable while saving energy.",
+      "Fast, powerful smartphone designed for smooth performance and long battery life. Perfect for gaming, photography, and everyday multitasking.",
     highlight: [
-      "Fast Cooling Technology",
-      "Energy Efficient Compressor",
-      "Silent Operation",
-      "Smart Temperature Control",
-      "Air Purification Filter",
+      "AMOLED / OLED Display",
+      "Powerful Chipset",
+      "AI Camera System",
+      "Fast Charging",
+      "5G Connectivity",
     ],
-    discount: 23,
+    discount: 25,
   },
   {
-    id: 19,
+    id: 20,
     title: "Air Conditioner",
     price: 394,
     image:
@@ -359,11 +381,11 @@ const products = [
     discount: 23,
   },
   {
-    id: 20,
+    id: 21,
     title: "Mixer",
     price: 5999,
     image:
-      "https://mayer.sg/cdn/shop/files/Mayer-MMPC6062-PressureCooker-with-Ceramic-Pot.png?v=1725249070&width=800",
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRfq_9-lCuoNzIeHe7uq2vh9ODCyWu3jnsIDqmrnwwQWDql645PRzEOhX-7w6ck5FRS2TrwT6J5vPeIWh6EO1lRkvlr-0NGADgOhx1FdvJHQ0-QfOI-UBK010oxOHm_CH7K&usqp=CAc",
     rating: 4.0,
     category: "Home & Kitchen",
     description:
@@ -376,6 +398,260 @@ const products = [
       "Durable Jars",
     ],
     discount: 27,
+  },
+
+  {
+    id: 22,
+    title: "black Hand Bag",
+    price: 2999,
+    image:
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTTUJtEqW4XJ7S_AECO5ndQv_0S-UCsORc-DwpBVnVVWiZGRLz1oHrQaEqqyLvWQx4GmaeRzaVWgeBh0SpIeE_UWjkrTj0B7taIGlCIqR7fUu3fr75OoFR45TDd9Nfcw3ndXT8izyc&usqp=CAc",
+    rating: 4.5,
+    category: "Hand Bags",
+    description:
+      "A structured quilted shoulder handbag with a refined silhouette and elegant finish, designed to elevate both casual and formal outfits. Its compact yet spacious interior makes it perfect for daily essentials while maintaining a polished luxury-inspired look.",
+
+    highlight: [
+      "Premium quilted textured finish",
+      "Structured silhouette with top-handle design",
+      "Compact yet spacious interior storage",
+      "Elegant metal hardware detailing",
+      "Perfect for both casual and formal styling",
+    ],
+    discount: 25,
+  },
+  {
+    id: 23,
+    title: "Brown Hand Bag",
+    price: 3999,
+    image:
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQifBBTCisMOvBatnlEE4dTtf5x0hAeh7T5l7yTx9-vWDff_H866mXWXZDzWdBXgNR-Kp_is0kehdBwXaJQRUfVofRaYImx14HSo10XRmxUGWV6WCubHk4wKobrb7BdfpH24oUM7Ho&usqp=CAc",
+    rating: 4.5,
+    category: "Hand Bags",
+    description:
+      "A sophisticated black quilted shoulder handbag featuring a structured silhouette, gold-tone chain strap, and elegant flap closure. Designed to bring a luxurious and timeless appeal, this bag seamlessly blends everyday functionality with high-end fashion aesthetics.",
+
+    highlight: [
+      "Premium quilted leather texture with diamond stitching",
+      "Elegant gold-tone chain shoulder strap",
+      "Structured flap design with secure closure",
+      "Compact yet functional interior space",
+      "Perfect for both casual and formal styling",
+    ],
+    discount: 35,
+  },
+  {
+    id: 24,
+    title: "Pink Hand Bag",
+    price: 3000,
+    image:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSOFLxAblMvuzwVN3cqltl3jrgI2afP54m9eVnJJvMioZHYZURw2HqbfeSH8q09eTXG-Jl2D0IhYbLaFOl3DoQAxfoeMeZJODxzMcEtg2aggpH9ofF6XdsRIa_sRwaSORX84i_bD10&usqp=CAc",
+    rating: 4.0,
+    category: "Hand Bags",
+    description:
+      "A chic pink quilted shoulder handbag featuring a structured silhouette, elegant flap closure, and gold-tone chain strap. Designed to deliver a timeless luxury-inspired look, this bag effortlessly elevates both everyday outfits and evening wear with its refined and versatile design.",
+
+    highlight: [
+      "Premium diamond-quilted textured finish",
+      "Elegant flap closure with secure magnetic fastening",
+      "Gold-tone chain strap for shoulder wear",
+      "Structured body for a polished luxury look",
+      "Perfect balance of style and everyday functionality",
+    ],
+    discount: 30,
+  },
+
+  {
+    id: 25,
+    title: "Short Dress",
+    price: 3599,
+    image:
+      "https://bohobeachhut.com/cdn/shop/products/boho-beach-hut-boho-dress-short-sleeve-dress-mini-dress-white-dress-hippie-dress-floral-dress-summer-dress-white-s-chic-white-summer-dress-34898052808899.jpg?v=1759851250&width=800",
+    rating: 4.5,
+    category: "Fashion",
+    description:
+      "A white cotton short dress with relaxed silhouette and subtle texture, offering effortless elegance and all-day comfort. Designed for versatile wear from casual outings to stylish city strolls",
+    highlight: [
+      "Handwoven premium cotton slub fabric",
+      "Loose, flattering silhouette",
+      "Breezy and comfortable all-day wear",
+      "Carefully tailored artisanal design",
+      "Ideal for summer outings and casual chic",
+    ],
+    discount: 40,
+  },
+  {
+    id: 26,
+    title: "Black Top",
+    price: 1599,
+    image:
+      "https://images.asos-media.com/products/bershka-long-sleeve-top-in-black/209439484-1-black/?$n_480w$&wid=476&fit=constrain",
+    rating: 4.5,
+    category: "Fashion",
+    description:
+      "A black cotton top with relaxed silhouette and subtle texture, offering effortless elegance and all-day comfort. Designed for versatile wear from casual outings to stylish city strolls",
+    highlight: [
+      "Handwoven premium cotton slub fabric",
+      "Loose, flattering silhouette",
+      "Carefully tailored artisanal design",
+      "Ideal for summer outings and casual chic",
+    ],
+    discount: 40,
+  },
+  {
+    id: 27,
+    title: "Maxi Dress",
+    price: 4599,
+    image:
+      "https://arcinaori.com.au/cdn/shop/files/5.7-PALOMA-MAXI-5.jpg?v=1762236314&width=1920",
+    rating: 4.0,
+    category: "Fashion",
+    description:
+      "A white and black cotton maxi dress with relaxed silhouette and subtle texture, offering effortless elegance and all-day comfort. Designed for versatile wear from casual outings to stylish city strolls",
+    highlight: [
+      "Handwoven premium cotton slub fabric",
+      "Loose, flattering silhouette",
+      "Breezy and comfortable all-day wear",
+      "Carefully tailored artisanal design",
+      "Ideal for summer outings and casual chic",
+    ],
+    discount: 40,
+  },
+  {
+    id: 28,
+    title: "Hunt The Villian",
+    price: 399,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtWbk-DILJ3_fgMns0wusjBKsCsdijNoP_Wg&s",
+    rating: 5.0,
+    category: "Books",
+    description:
+      "Hunt The Villian is a gripping MM romance about love, heartbreak, and obsession. vaughn's world is turned upside down by the enigmatic yulian dimitrive in this intense, unforgettable story of passion and transformation.",
+    highlight: [
+      "dark romance",
+      "high angst",
+      "Deep emotions",
+      "Enimies to lovers",
+      "Bittersweet love",
+    ],
+    discount: 13,
+  },
+  {
+    id: 29,
+    title: "God Of Fury",
+    price: 499,
+    image:
+      "https://thegrimoire.co.nz/cdn/shop/files/God_of_Fury_grande.png?v=1736980692",
+    rating: 5.0,
+    category: "Books",
+    description:
+      "God Of Fury is a gripping dark MM romance about love, heartbreak, and obsession. brandon's world is turned upside down by the enigmatic Nikolai Sokolov in this intense, unforgettable story of passion and transformation.",
+    highlight: [
+      "dark romance",
+      "high angst",
+      "Deep emotions",
+      "Enimies to lovers",
+      "Bittersweet love",
+    ],
+    discount: 10,
+  },
+  {
+    id: 30,
+    title: "Vows Of Deception",
+    price: 499,
+    image:
+      "https://bluediarybooks.com/wp-content/uploads/2024/03/1693323622-450x415.webp",
+    rating: 5.0,
+    category: "Books",
+    description:
+      "Vows Of Deception is a gripping dark MM romance about love, heartbreak, and obsession. Lia's world is turned upside down by the enigmatic Adrian Volkov in this intense, unforgettable story of passion and transformation.",
+    highlight: [
+      "dark romance",
+      "high angst",
+      "Deep emotions",
+      "Enimies to lovers",
+      "Bittersweet love",
+    ],
+    discount: 15,
+  },
+  {
+    id: 31,
+    title: "Mini Camera",
+    price: 2599,
+    image:
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTrZwXs3Kv-CJPQg2JeX0yyAHYBaH-dhu8g0JJJFVBU89GTlH1mQUDkdGuDqFvkGBcZPcbSfC9Ze0OT4iwvTZjbsjBUERlpZph0JOsKoPi4tcOqx1rGBTly6TK-Ioc_lcA_5RhX7g&usqp=CAc",
+    rating: 4.5,
+    category: "Electronics",
+    description:
+      "Compact mini camera with ultra-clear video quality and smart portable design. Perfect for travel, security, and capturing moments with ease.",
+
+    highlight: [
+      "HD Video Recording",
+      "Wide Angle Lens",
+      "Portable Mini Design",
+      "Night Vision Support",
+      "Long Battery Backup",
+    ],
+    discount: 25,
+  },
+  {
+    id: 31,
+    title: "Monitor 34 inch",
+    price: 25999,
+    image:
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSwJpZgRi_J2WpCaJHYWKAEcKPXM1PKlNkJX9mOeoFdZ4LKLd_CiAu6R0FnDvk5U8jL8zCc-cIywAFQRZr7KRD_q8PypYJGpJlOMsSpB3lCf8DQkgz34mN_ew86j-4k&usqp=CAc",
+    rating: 4.5,
+    category: "Electronics",
+    description:
+      "Ultra-wide 34-inch monitor with stunning visuals and smooth performance. Built for immersive gaming, multitasking, and professional productivity.",
+
+    highlight: [
+      "34-Inch UltraWide Display",
+      "Crystal Clear Resolution",
+      "High Refresh Rate",
+      "Eye Care Technology",
+      "Multiple Connectivity Ports",
+    ],
+    discount: 25,
+  },
+  {
+    id: 32,
+    title: "Pink Hand Bag",
+    price: 3500,
+    image:
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTrd4jxTdpK9RvnEQQ97BuGaGwMm4mLTXc9pUsBJCLic4fTBTKg6JYc46bgBo8QfIWexlY_YpgaztCZ6d46ghak1nboPxGCybiy4jLRSd0avUJzpJcmceYw&usqp=CAc",
+    rating: 4.5,
+    category: "Hand Bags",
+    description:
+      "A chic grren quilted shoulder handbag featuring a structured silhouette, elegant flap closure. Designed to deliver a timeless luxury-inspired look, this bag effortlessly elevates both everyday outfits and evening wear with its refined and versatile design.",
+
+    highlight: [
+      "Premium diamond-quilted textured finish",
+      "Gold-tone chain strap for shoulder wear",
+      "Structured body for a polished luxury look",
+      "Perfect balance of style and everyday functionality",
+    ],
+    discount: 20,
+  },
+  {
+    id: 33,
+    title: "white & black Hand Bag",
+    price: 4500,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqtq1ndTAi9gxqr-kYnZ1y4GRGY9ixQmg6Fw&s",
+    rating: 4.5,
+    category: "Hand Bags",
+    description:
+      "Elegant black and white handbag combo crafted for everyday style and convenience. Perfect for casual outings, office looks, and special occasions.",
+
+    highlight: [
+      "Pack of 2 Stylish Handbags",
+      "Premium Leather Finish",
+      "Spacious Storage Design",
+      "Comfortable Carry Handles",
+      "Perfect for Daily Use",
+    ],
+    discount: 20,
   },
 ];
 

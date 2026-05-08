@@ -22,9 +22,9 @@ function ProductDetail() {
   };
 
   return (
-    <div className="w-full h-auto bg-gray-200 text-gray-700 ">
+    <div className="w-full h-auto bg-gray-200 dark:bg-gray-800 text-main-text ">
       <div className="flex flex-col flex-wrap ">
-        <div className="flex flex-col justify-around md:flex-row bg-gray-100 mt-3 mb-5">
+        <div className="flex flex-col justify-around md:flex-row bg-main-bg mt-3 mb-5">
           <div className="w-full md:w-[30%] h-auto flex justify-center items-center  ">
             <img
               className="w-full h-auto object-contain rounded"
@@ -60,7 +60,7 @@ function ProductDetail() {
 
             <button
               onClick={handleBuyNow}
-              className="w-2/3 md:w-1/4 bg-yellow-400 hover:bg-yellow-500 shadow-sm shadow-yellow-500 rounded py-1 px-4 mx-1 my-2 text-center "
+              className="w-2/3 md:w-1/4 bg-yellow-500 hover:bg-yellow-600 shadow-sm shadow-yellow-500 rounded py-1 px-4 mx-1 my-2 text-center "
             >
               Buy Now
             </button>

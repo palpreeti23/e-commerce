@@ -15,8 +15,8 @@ function ProductCard({ product }) {
 
   return (
     <div className="w-[250px] h-auto flex-shrink-0">
-      <div className="bg-gray-100  rounded-lg pb-2 shadow shadow-gray-300">
-        <div className="flex flex-col text-gray-700">
+      <div className="bg-main-bg rounded-lg pb-2 shadow shadow-gray-300 dark:shadow-gray-600">
+        <div className="flex flex-col text-main-text">
           <Link to={`/product/${product.id}`}>
             <div className="py-1">
               <img

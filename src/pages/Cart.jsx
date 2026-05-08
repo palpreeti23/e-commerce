@@ -8,15 +8,15 @@ function Cart() {
   const totalItems = cartItem.reduce((sum, item) => sum + item.quantity, 0);
   const subTotal = cartItem.reduce(
     (sum, item) => sum + item.price * item.quantity,
-    0
+    0,
   );
 
   return (
-    <div className="flex flex-col text-gray-800  h-[100vh] bg-gray-100  overflow-y-auto">
+    <div className="flex flex-col text-main-text  h-[100vh] bg-main-bg  overflow-y-auto">
       <h2 className=" text-2xl text-left py-3 px-8 font-medium ">
         Shopping Cart
       </h2>
-      <span className="w-full h-[1px] border-b-2 border-gray-400 "></span>
+      <span className="w-full h-[1px] border-b border-gray-400 "></span>
       <div className="w-full">
         {cartItem?.map((item) => (
           <CartComponent key={item.id} item={item} />

@@ -72,30 +72,30 @@ function Order() {
   };
 
   return (
-    <div className="w-full h-auto bg-gray-200 pb-8 flex justify-center items-center">
+    <div className="w-full h-auto bg-main-bg pb-8 flex justify-center items-center">
       <div className="flex w-full flex-wrap ">
         <div className="flex flex-col w-3/5 ">
-          <div className="w-full h-auto py-2 shadow-lg shadow-gray-400 rounded bg-gray-100 mt-3 mx-5">
+          <div className="w-full h-auto py-2 shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 mx-5">
             <div className="flex flex-col items-start">
               <div className="flex pt-2">
-                <p className="text-sm bg-gray-200 px-2 mx-2 my-1 text-blue-500">
+                <p className="text-sm bg-gray-200 dark:bg-gray-600 px-2 mx-2 my-1 text-blue-500">
                   1
                 </p>
                 <h2 className="text-lg font-semibold text-gray-500 ">LOGIN</h2>
                 <FaCheckCircle size={17} className="mt-1 mx-4 text-blue-600" />
               </div>
 
-              <h2 className="text-gray-700 font-semibold ml-11">
+              <h2 className="text-main-text font-semibold ml-11">
                 {users.name}
               </h2>
-              <p className="mx-11">{users.email}</p>
+              <p className="mx-11 text-main-text">{users.email}</p>
             </div>
           </div>
 
-          <div className="w-full h-auto pt-2 pb-4 shadow-lg shadow-gray-400 rounded bg-gray-100 mt-3 mx-5">
+          <div className="w-full h-auto pt-2 pb-4 shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 mx-5">
             <div className="flex flex-col items-start">
               <div className="flex pt-2">
-                <p className="text-sm bg-gray-200 px-2 ml-2 mr-1 my-1 text-blue-500">
+                <p className="text-sm bg-gray-200 dark:bg-gray-600 px-2 ml-2 mr-1 my-1 text-blue-500">
                   2
                 </p>
                 <h2 className="text-lg font-semibold text-gray-500">
@@ -104,20 +104,20 @@ function Order() {
                 <FaCheckCircle size={17} className="mt-1 ml-1 text-blue-600" />
               </div>
 
-              <h2 className="text-gray-600 font-semibold text-left ml-8 ">
-                {addresses.name}, {addresses.area}, {addresses.city},
-                {addresses.state},{addresses.pin}
+              <h2 className="text-gray-600 dark:text-gray-400 font-semibold text-left ml-8 ">
+                {addresses?.name}, {addresses?.area}, {addresses?.city},
+                {addresses?.state},{addresses?.pin}
               </h2>
             </div>
           </div>
 
-          <div className="w-full h-auto shadow-lg shadow-gray-400 rounded bg-gray-100 mt-3 mx-5 pb-5">
+          <div className="w-full h-auto shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 mx-5 pb-5">
             <div className="flex flex-col items-start">
               <div className="flex bg-blue-500 w-full py-2">
-                <p className="text-sm bg-gray-200 px-2 mx-2 my-1 text-blue-600">
+                <p className="text-sm bg-gray-200 dark:bg-gray-600 px-2 mx-2 my-1 text-blue-600">
                   3
                 </p>
-                <h2 className="text-lg font-semibold text-white ">
+                <h2 className="text-lg font-semibold text-white dark:text-gray-800 ">
                   ORDER SUMMARY
                 </h2>
               </div>
@@ -131,14 +131,14 @@ function Order() {
                     />
                   </div>
                   <div className="flex flex-col text-left pt-2">
-                    <p className="font-semibold text-lg text-gray-800">
+                    <p className="font-semibold text-lg text-main-text">
                       {buyNow.title}
                     </p>
-                    <p className="text-gray-800 "> ₹{buyNow.price}</p>
-                    <p className="text-gray-600 text-sm ">
+                    <p className="text-main-text "> ₹{buyNow.price}</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm ">
                       Seller : INTERNATIONALSELLER
                     </p>
-                    <p className="text-gray-800 text-sm ">
+                    <p className="text-main-text text-sm ">
                       Delivery By - {date}
                     </p>
                   </div>
@@ -147,21 +147,21 @@ function Order() {
                   <div className="border border-gray-500 px-2 w-1/2 rounded-2xl flex justify-around ">
                     <button
                       onClick={() => dispatch(decreaseQntInBuy(buyNow.id))}
-                      className="font-semibold text-lg text-gray-800 pb-1 "
+                      className="font-semibold text-lg text-main-text pb-1 "
                     >
                       -
                     </button>
                     <p className="pt-1 px-1 text-blue-500">{buyNow.quantity}</p>
                     <button
                       onClick={() => dispatch(increaseQntInBuy(buyNow.id))}
-                      className="font-semibold text-lg text-gray-800  pb-1"
+                      className="font-semibold text-lg text-main-text  pb-1"
                     >
                       +
                     </button>
                   </div>
                   <button
                     onClick={deleteBuyNow}
-                    className="mx-3 text-gray-700 font-semibold text-sm"
+                    className="mx-3 text-main-text font-semibold text-sm"
                   >
                     REMOVE
                   </button>
@@ -170,10 +170,10 @@ function Order() {
             </div>
           </div>
 
-          <div className="w-full h-auto shadow-lg shadow-gray-400 rounded bg-gray-100 mt-3 ml-5 pb-3">
+          <div className="w-full h-auto shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 ml-5 pb-3">
             <div className="flex flex-col items-start ">
               <div className="flex pt-2">
-                <p className="text-sm bg-gray-200 px-2 mx-2 my-1 text-blue-500">
+                <p className="text-sm bg-gray-200 dark:bg-gray-600 px-2 mx-2 my-1 text-blue-500">
                   4
                 </p>
                 <h2 className="text-lg font-semibold text-gray-500 ">
@@ -181,7 +181,7 @@ function Order() {
                 </h2>
               </div>
 
-              <ul className="text-gray-700 px-8 text-left space-y-2 w-full pt-2">
+              <ul className="text-main-text px-8 text-left space-y-2 w-full pt-2">
                 {paymentMethod?.map((payment) => (
                   <div
                     key={payment.id}
@@ -198,7 +198,7 @@ function Order() {
                       />
                       <span>{payment.name}</span>
                     </div>
-                    <div>{payment.icon}</div>
+                    <div className="">{payment.icon}</div>
                   </div>
                 ))}
               </ul>
@@ -206,7 +206,7 @@ function Order() {
               {(selectedMethod === "phonepe" || selectedMethod === "card") &&
                 show && (
                   <div className="fixed z-50 inset-0 bg-black/40 flex justify-center items-center">
-                    <div className=" bg-gray-100  flex flex-col w-64 h-auto pb-6 rounded-lg shadow-lg shadow-gray-400 ">
+                    <div className=" bg-gray-50 dark:bg-gray-900  flex flex-col w-64 h-auto pb-6 rounded-lg shadow shadow-gray-400 dark:shadow-gray-600 ">
                       <p className="font-semibold text-lg text-gray-800 text-left pt-2 pb-1">
                         <span className="px-5">{selectedMethod}</span>
                       </p>
@@ -215,9 +215,11 @@ function Order() {
                           size={25}
                           className="mx-1 border rounded-2xl bg-gray-400 mt-1"
                         />
-                        <p className="font-gray-700 font-lg">{users.name}</p>
+                        <p className="text-gray-700 dark:text-gray-200 text-lg">
+                          {users.name}
+                        </p>
                       </div>
-                      <p className="text-gray-600 text-left px-3 w-[85%] border border-gray-400 bg-gray-200 mx-auto rounded my-2">
+                      <p className="text-gray-600 dark:text-gray-200 text-left px-3 w-[85%] border border-gray-400 bg-gray-200 dark:bg-gray-600 mx-auto rounded my-2">
                         ₹{buyNow.price}
                       </p>
                       <button
@@ -233,7 +235,7 @@ function Order() {
             </div>
           </div>
 
-          <div className="w-1/4 h-auto shadow-lg shadow-gray-400 rounded bg-orange-400 mt-5 pb-3 mx-auto ">
+          <div className="w-1/4 h-auto shadow shadow-gray-200 dark:shadow-none rounded bg-orange-400 mt-5 pb-3 mx-auto ">
             <button onClick={orderPlace} className="text-center pt-2">
               Place Order
             </button>
@@ -242,11 +244,11 @@ function Order() {
 
         <div className="w-2/5 h-auto flex mx-auto ">
           <div className=" w-2/3 flex items-center mx-auto ">
-            <div className="w-full flex flex-col text-left bg-gray-100 rounded shadow-lg shadow-gray-400 my-2 pb-4 px-3 ">
-              <h2 className="font-semibold text-lg text-gray-800 my-3 px-1">
+            <div className="w-full flex flex-col text-left bg-gray-50 dark:bg-gray-800 rounded shadow shadow-gray-400 my-2 pb-4 px-3 ">
+              <h2 className="font-semibold text-lg text-main-text my-3 px-1">
                 Price Detail
               </h2>
-              <div className="flex flex-col bg-gray-200 rounded-lg text-gray-500 space-y-3 px-3 py-3 mb-3">
+              <div className="flex flex-col bg-gray-200 dark:bg-gray-600 rounded-lg text-gray-500 dark:text-gray-400 space-y-3 px-3 py-3 mb-3">
                 <p className="flex justify-between font-semibold ">
                   <span>Price ({buyNow.quantity} item)</span>
                   <span>₹{buyNow.price}</span>
@@ -257,7 +259,7 @@ function Order() {
                 </p>
 
                 <span className="w-[95%] h-[1px] border-b border-gray-300 "></span>
-                <p className="flex justify-between font-semibold text-gray-700">
+                <p className="flex justify-between font-semibold text-main-text">
                   <span className=""> Total Payable </span>
                   <span>₹ {totalPayable}</span>
                 </p>

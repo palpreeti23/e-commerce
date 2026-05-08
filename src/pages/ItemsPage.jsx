@@ -19,7 +19,7 @@ function ItemsPage() {
 
   if (selectCategory !== "All") {
     finalproduct = finalproduct.filter(
-      (product) => product.category === selectCategory
+      (product) => product.category === selectCategory,
     );
 
     console.log(finalproduct);
@@ -27,7 +27,7 @@ function ItemsPage() {
 
   if (searchQuery !== "") {
     finalproduct = finalproduct.filter((product) =>
-      product.title?.toLowerCase().includes(searchQuery.toLowerCase())
+      product.title?.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }
 
@@ -46,7 +46,7 @@ function ItemsPage() {
 
   return (
     <main className="overflow-y-auto flex-1  ">
-      <div className="w-full min-h-screen bg-gray-100 flex flex-col  flex-wrap rounded overflow-y-auto hide-scrollbar py-5 ">
+      <div className="w-full min-h-screen bg-main-bg flex flex-col  flex-wrap rounded overflow-y-auto hide-scrollbar py-5 ">
         <div className="w-full space-y-4 ">
           {finalproduct.length > 0 ? (
             <ProductCardList products={finalproduct} />

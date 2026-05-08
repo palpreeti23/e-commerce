@@ -4,6 +4,7 @@ import FilterReducer from "./CategorySlice";
 import WishListReducer from "./WishListSlice";
 import userReducer from "./UserSlice";
 import alertReducer from "./Alert";
+import themeReducer from "./ThemeSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     wishlist: WishListReducer,
     user: userReducer,
     alert: alertReducer,
+    theme: themeReducer,
   },
 });
 
