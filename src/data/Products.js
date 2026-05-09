@@ -560,7 +560,7 @@ const products = [
     title: "Vows Of Deception",
     price: 499,
     image:
-      "https://bluediarybooks.com/wp-content/uploads/2024/03/1693323622-450x415.webp",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwh_5JK5Tt8_dkIrT0ZH62nQuo0Sd4SzclEA&s",
     rating: 5.0,
     category: "Books",
     description:
