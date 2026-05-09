@@ -3,7 +3,6 @@ import products from "../data/Products";
 import { Link } from "react-router-dom";
 
 function ProductRow({ list, heading }) {
-  const scrollRef = useRef(null);
   let displayProduct = [];
 
   if (!list || list === "All") {
@@ -15,25 +14,13 @@ function ProductRow({ list, heading }) {
   }
   if (displayProduct.length === 0) return null;
 
-  // const scroll = (direction) => {
-  //   const container = scrollRef.current;
-  //   const scrollAmount = 300;
-
-  //   if (direction === "left") {
-  //     container.scrollLeft -= scrollAmount;
-  //   } else {
-  //     container.scrollLeft += scrollAmount;
-  //   }
-  // };
-
   return (
     <div className="w-full flex flex-col h-auto bg-main-bg  text-main-text shadow-lg shadow-gray-300 dark:shadow-gray-800">
-      <p className="text-2xl font-medium my-2 py-2 text-left px-8">{heading}</p>
+      <p className="text-2xl font-medium my-2 py-2 md:text-left text-center px-8">
+        {heading}
+      </p>
 
-      <div
-        className="w-full flex items-center justify-around gap-2 flex-wrap"
-        // ref={scrollRef}
-      >
+      <div className="w-full flex items-center justify-around gap-2 flex-wrap">
         {displayProduct.map((product) => (
           <div
             key={product.id}

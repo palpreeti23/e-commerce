@@ -33,7 +33,6 @@ function PRow({ list, heading }) {
                       src={product.image}
                       alt="product image"
                     />
-                    {/* <h2 className="text-lg font-medium ">{product.title}</h2> */}
                   </div>
                 </Link>
               </div>

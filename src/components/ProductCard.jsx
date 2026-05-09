@@ -13,6 +13,10 @@ function ProductCard({ product }) {
   const wishList = useSelector((state) => state.wishlist.item);
   const wishlisted = wishList.some((item) => item.id === product.id);
 
+  const finalPrice = Math.round(
+    product.price - (product.price * product.discount) / 100,
+  );
+
   return (
     <div className="w-[250px] h-auto flex-shrink-0">
       <div className="bg-main-bg rounded-lg pb-2 shadow shadow-gray-300 dark:shadow-gray-600">
@@ -28,7 +32,7 @@ function ProductCard({ product }) {
               <h2 className="text-lg font-medium text-left px-4 p">
                 {product.title}
               </h2>
-              <p className="text-left px-4 py-1"> ₹{product.price}</p>
+              <p className="text-lg text-left px-4">₹{finalPrice}</p>
               <StarRating rating={product.rating} className="px-4" />
             </div>
           </Link>

@@ -1,6 +1,5 @@
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Sidebar from "./Sidebar";
 import ProductCard from "./ProductCard";
 import StarRating from "./StarRating";
 import ProductList from "./ProductList";
@@ -20,7 +19,6 @@ import AddressForm from "./AddressForm";
 export {
   Header,
   Footer,
-  Sidebar,
   ProductCard,
   StarRating,
   ProductList,

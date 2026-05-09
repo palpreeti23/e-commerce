@@ -13,6 +13,9 @@ function Cart({ item }) {
   const cartItem = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
   const cartItems = cartItem.find((item) => item.id === cartItem.id);
+  const finalPrice = Math.round(
+    item.price - (item.price * item.discount) / 100,
+  );
 
   return (
     <div className="w-full">
@@ -29,7 +32,7 @@ function Cart({ item }) {
             <div className="flex flex-col text-left px-8 space-y-1 ">
               <h3 className="text-xl ">{item.title}</h3>
               <p className="text-sm text-green-700">In stock</p>
-              <p className="text-orange-400 font-medium">₹{item.price}</p>
+              <p className="text-orange-400 font-medium">₹{finalPrice}</p>
               <p className="text-blue-500 text-sm">10 days Return & Exchane</p>
               <div className="flex">
                 <div className="border-gray-500 border rounded-xl px-3 w-1/2 space-x-5 flex mt-2 ">

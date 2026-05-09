@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaCreditCard, FaMoneyBillWave } from "react-icons/fa";
 import { SiPhonepe } from "react-icons/si";
@@ -21,15 +21,18 @@ function Order() {
   const selectedMethod = useSelector((state) => state.cart.payment);
   const [show, setShow] = useState(false);
 
-  const total = buyNow.price * buyNow.quantity;
-  console.log(user);
+  // const total = buyNow.price * buyNow.quantity;
+  const finalPrice = Math.round(
+    buyNow.price - (buyNow.price * buyNow.discount) / 100,
+  );
+  const newTotal = finalPrice * buyNow.quantity;
 
   const addresses = address[0];
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const date = new Date().toDateString();
   const deliveryCharge = 40;
-  const totalPayable = total + deliveryCharge;
+  const totalPayable = newTotal + deliveryCharge;
 
   const deleteBuyNow = () => {
     dispatch(removeBuyNow(buyNow));
@@ -140,11 +143,12 @@ function Order() {
                       alt="image"
                     />
                   </div>
+
                   <div className="flex flex-col text-left pt-2">
                     <p className="font-semibold text-lg text-main-text">
                       {buyNow.title}
                     </p>
-                    <p className="text-main-text "> ₹{buyNow.price}</p>
+                    <p className="text-main-text "> ₹{finalPrice}</p>
                     <p className="text-gray-600 dark:text-gray-400 text-sm ">
                       Seller : INTERNATIONALSELLER
                     </p>
@@ -230,7 +234,7 @@ function Order() {
                         </p>
                       </div>
                       <p className="text-gray-600 dark:text-gray-200 text-left px-3 w-[85%] border border-gray-400 bg-gray-200 dark:bg-gray-600 mx-auto rounded my-2">
-                        ₹{buyNow.price}
+                        ₹{totalPayable}
                       </p>
                       <button
                         type="submit"
@@ -245,7 +249,7 @@ function Order() {
             </div>
           </div>
 
-          <div className=" w-full md:w-1/4 h-auto shadow shadow-gray-200 dark:shadow-none rounded bg-orange-400 mt-5 pb-3 mx-auto ">
+          <div className=" w-full md:w-1/4 h-auto shadow shadow-gray-200 dark:shadow-none rounded bg-orange-400 mt-5 pb-3 mx-auto cursor-pointer ">
             <button onClick={orderPlace} className="text-center pt-2">
               Place Order
             </button>
@@ -261,7 +265,7 @@ function Order() {
               <div className="flex flex-col bg-gray-200 dark:bg-gray-600 rounded-lg text-gray-500 dark:text-gray-400 space-y-3 px-3 py-3 mb-3">
                 <p className="flex justify-between font-semibold ">
                   <span>Price ({buyNow.quantity} item)</span>
-                  <span>₹{buyNow.price}</span>
+                  <span>₹{newTotal}</span>
                 </p>
                 <p className="flex justify-between font-semibold ">
                   <span>Delivery Charge </span>

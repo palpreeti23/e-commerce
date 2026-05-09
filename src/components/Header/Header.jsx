@@ -10,6 +10,7 @@ import { setCategory } from "../../store/CategorySlice";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { list } from "postcss";
 import { ToggleTheme } from "../../store/ThemeSlice";
+import { FiHome } from "react-icons/fi";
 
 function Header({ setSearchQuery }) {
   const [open, setOpen] = useState(false);
@@ -61,9 +62,11 @@ function Header({ setSearchQuery }) {
         <button className="md:hidden ml-5" onClick={() => setOpen(!open)}>
           <FaBars />
         </button>
-        <div className="w-32 font-['Saira_Stencil'] font-semibold text-2xl ">
-          preet<span className="text-orange-500">ify</span>
-        </div>
+        <Link to={"/"}>
+          <div className="w-32 font-['Saira_Stencil'] font-semibold text-2xl ">
+            preet<span className="text-orange-500">ify</span>
+          </div>
+        </Link>
 
         {isAuthenticated ? (
           <div className=" hidden md:flex flex-1 justify-around ">
@@ -207,6 +210,19 @@ function Header({ setSearchQuery }) {
           {isAuthenticated ? (
             <div className="flex flex-col space-y-3">
               {/* <div className="flex justify-end gap-3 text-gray-500 pt-1 font-light mr-10 "> */}
+
+              <NavLink
+                to={"/"}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  isActive ? "text-orange-400" : ""
+                }
+              >
+                <button className="relative px-4 py-1 border border-gray-200 rounded flex">
+                  <FiHome className="text-2xl" size={25} />
+                </button>
+              </NavLink>
+
               <NavLink
                 to={"/wishlist"}
                 onClick={() => setOpen(false)}

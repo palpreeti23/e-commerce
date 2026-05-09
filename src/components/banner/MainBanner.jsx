@@ -36,8 +36,7 @@ function MainBanner() {
         <div className="w-1/2 ">
           <img
             className="w-75 h-50 md:w-95 md:h-80 rounded object-fill "
-            // src={productImg.mage}
-            src="src/assets/black-top-removebg-preview.png"
+            src="/images/black-top-removebg-preview.png"
             alt="imag"
           />
         </div>

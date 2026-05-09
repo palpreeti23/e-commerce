@@ -195,7 +195,7 @@ const products = [
     title: "Long red dress",
     price: 2999,
     image:
-      "https://png.pngtree.com/png-vector/20230430/ourmid/pngtree-beautiful-dress-png-image_6747132.png",
+      "https://chotronette.com/wp-content/uploads/2022/11/348720691_894302918326721_7466824773977892143_n.jpg.webp",
     rating: 4.0,
     category: "Fashion",
     description:
