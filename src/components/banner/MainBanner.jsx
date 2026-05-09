@@ -5,13 +5,11 @@ import { useDispatch } from "react-redux";
 import { setCategory } from "../../store/CategorySlice";
 
 function MainBanner() {
-  const productImg = products[9];
-  const itemCategory = productImg.category;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleShop = () => {
-    dispatch(setCategory(itemCategory));
+    dispatch(setCategory("Fashion"));
     navigate("/itemspage");
   };
   return (
