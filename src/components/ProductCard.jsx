@@ -36,7 +36,9 @@ function ProductCard({ product }) {
             <button
               onClick={() => {
                 dispatch(addToCart(product));
-                dispatch(showAlert({ message: "Added to the cart!" }));
+                dispatch(
+                  showAlert({ message: "Added to the cart!", type: "success" }),
+                );
               }}
               className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-2 text-center px-2 mx-1 text-sm text-gray-200"
             >
@@ -53,6 +55,7 @@ function ProductCard({ product }) {
                     message: wishlisted
                       ? "Removed from wishlist!"
                       : "Added to wishlist!",
+                    type: "success",
                   }),
                 );
               }}

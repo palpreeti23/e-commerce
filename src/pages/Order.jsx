@@ -55,9 +55,18 @@ function Order() {
   ];
 
   const orderPlace = () => {
+    if (!addresses) {
+      dispatch(
+        showAlert({
+          message: "add your delivery address",
+          type: "error",
+        }),
+      );
+      return;
+    }
     if (selectedMethod === "cod") {
       dispatch(placeOrder());
-      dispatch(showAlert({ message: "ordered!" }));
+      dispatch(showAlert({ message: "ordered!", type: "success" }));
       navigate(`/summary`);
     } else {
       setShow(true);
@@ -66,7 +75,7 @@ function Order() {
 
   const handlePay = () => {
     dispatch(placeOrder());
-    dispatch(showAlert({ message: "ordered!" }));
+    dispatch(showAlert({ message: "ordered!", type: "success" }));
     navigate(`/summary`);
 
     setShow(false);
@@ -75,8 +84,8 @@ function Order() {
   return (
     <div className="w-full h-auto bg-main-bg pb-8 flex justify-center items-center">
       <div className="flex w-full flex-wrap ">
-        <div className="flex flex-col w-3/5 ">
-          <div className="w-full h-auto py-2 shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 mx-5">
+        <div className="flex flex-col w-full mx-auto md:w-3/5  ">
+          <div className="w-full h-auto py-2 shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 md:mx-5">
             <div className="flex flex-col items-start">
               <div className="flex pt-2">
                 <p className="text-sm bg-gray-200 dark:bg-gray-600 px-2 mx-2 my-1 text-blue-500">
@@ -93,7 +102,7 @@ function Order() {
             </div>
           </div>
 
-          <div className="w-full h-auto pt-2 pb-4 shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 mx-5">
+          <div className="w-full h-auto pt-2 pb-4 shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 md:mx-5">
             <div className="flex flex-col items-start">
               <div className="flex pt-2">
                 <p className="text-sm bg-gray-200 dark:bg-gray-600 px-2 ml-2 mr-1 my-1 text-blue-500">
@@ -112,7 +121,7 @@ function Order() {
             </div>
           </div>
 
-          <div className="w-full h-auto shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 mx-5 pb-5">
+          <div className="w-full h-auto shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 md:mx-5 pb-5">
             <div className="flex flex-col items-start">
               <div className="flex bg-blue-500 w-full py-2">
                 <p className="text-sm bg-gray-200 dark:bg-gray-600 px-2 mx-2 my-1 text-blue-600">
@@ -171,7 +180,7 @@ function Order() {
             </div>
           </div>
 
-          <div className="w-full h-auto shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 ml-5 pb-3">
+          <div className="w-full h-auto shadow shadow-gray-200 dark:shadow-gray-700 rounded bg-gray-50 dark:bg-gray-800 mt-3 md:ml-5 pb-3">
             <div className="flex flex-col items-start ">
               <div className="flex pt-2">
                 <p className="text-sm bg-gray-200 dark:bg-gray-600 px-2 mx-2 my-1 text-blue-500">
@@ -236,15 +245,15 @@ function Order() {
             </div>
           </div>
 
-          <div className="w-1/4 h-auto shadow shadow-gray-200 dark:shadow-none rounded bg-orange-400 mt-5 pb-3 mx-auto ">
+          <div className=" w-full md:w-1/4 h-auto shadow shadow-gray-200 dark:shadow-none rounded bg-orange-400 mt-5 pb-3 mx-auto ">
             <button onClick={orderPlace} className="text-center pt-2">
               Place Order
             </button>
           </div>
         </div>
 
-        <div className="w-2/5 h-auto flex mx-auto ">
-          <div className=" w-2/3 flex items-center mx-auto ">
+        <div className=" w-full md:w-2/5 h-auto flex mx-auto mt-2 ">
+          <div className="w-full md:w-2/3 flex items-center mx-auto ">
             <div className="w-full flex flex-col text-left bg-gray-50 dark:bg-gray-800 rounded shadow shadow-gray-400 my-2 pb-4 px-3 ">
               <h2 className="font-semibold text-lg text-main-text my-3 px-1">
                 Price Detail

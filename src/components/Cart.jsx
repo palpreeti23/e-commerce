@@ -51,7 +51,9 @@ function Cart({ item }) {
                 <button
                   onClick={() => {
                     dispatch(removeFromCart(item.id));
-                    dispatch(showAlert({ message: "deleted!" }));
+                    dispatch(
+                      showAlert({ message: "deleted!", type: "success" }),
+                    );
                   }}
                   className="px-3 text-blue-500 text-sm mt-3 cursor-pointer "
                 >

@@ -56,9 +56,9 @@ function Header({ setSearchQuery }) {
   const wishlist = useSelector((state) => state.wishlist.item.length);
 
   return (
-    <header className="w-full text-black dark:text-white h-13">
-      <nav className="w-full flex flex-wrap justify-between items-center px-4 fixed z-40 top-0 left-0 h-auto bg-white dark:bg-gray-950 py-2">
-        <button className="md:hidden ml-5" onClick={() => setOpen(true)}>
+    <header className="w-full text-black dark:text-white h-13 ">
+      <nav className="w-full flex flex-wrap justify-between items-center px-4 fixed z-40 top-0 left-0 h-auto bg-white dark:bg-gray-950 py-2 shadow shadow-gray-200 dark:shadow-gray-800">
+        <button className="md:hidden ml-5" onClick={() => setOpen(!open)}>
           <FaBars />
         </button>
         <div className="w-32 font-['Saira_Stencil'] font-semibold text-2xl ">
@@ -185,16 +185,16 @@ function Header({ setSearchQuery }) {
             </div>
           </div>
         ) : (
-          <div className="flex-1 flex justify-end">
+          <div className="hidden md:flex flex-1  justify-end">
             <div className="flex justify-around items-center px-2 w-[40%]">
               <Link to={`/login`}>
-                <p className=" font-semibold text-gray-200 hover:text-orange-400">
+                <p className=" font-semibold text-gray-700 dark:text-gray-200 hover:text-orange-400">
                   Login
                 </p>
               </Link>
 
               <Link to={`/signup`}>
-                <p className=" font-semibold text-gray-200 hover:text-orange-400">
+                <p className=" font-semibold text-gray-700 dark:text-gray-200 hover:text-orange-400">
                   Signup
                 </p>
               </Link>
@@ -262,17 +262,16 @@ function Header({ setSearchQuery }) {
               </NavLink>
             </div>
           ) : (
-            // </div>
-            <div className="flex-1 flex justify-end">
-              <div className="flex justify-around items-center px-2 w-[40%]">
+            <div className="flex-1 flex flex-col">
+              <div className="flex flex-col justify-center px-2 w-[40%]">
                 <Link to={`/login`}>
-                  <p className=" font-semibold text-gray-200 hover:text-orange-400">
+                  <p className=" font-semibold text-gray-700 dark:text-gray-200 hover:text-orange-400">
                     Login
                   </p>
                 </Link>
 
                 <Link to={`/signup`}>
-                  <p className=" font-semibold text-gray-200 hover:text-orange-400">
+                  <p className=" font-semibold text-gray-700 dark:text-gray-200 hover:text-orange-400">
                     Signup
                   </p>
                 </Link>

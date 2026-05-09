@@ -48,7 +48,9 @@ function ProductDetail() {
             <button
               onClick={() => {
                 dispatch(addToCart(productInfo));
-                dispatch(showAlert({ message: "Added to the cart!" }));
+                dispatch(
+                  showAlert({ message: "Added to the cart!", type: "success" }),
+                );
               }}
               className="w-2/3 md:w-1/4 bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex justify-center gap-1 py-1 px-4 mx-1 my-2 flex-wrap"
             >

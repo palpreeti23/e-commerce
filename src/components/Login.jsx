@@ -28,30 +28,30 @@ function Login() {
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <div className="w-[30%] bg-gray-100 dark:bg-gray-700 rounded pt-2 pb-2 px-3 shadow-xl shadow-gray-400 dark:shadow-none">
+      <div className="w-2/3 md:w-[30%] bg-gray-100 dark:bg-gray-700 rounded pt-2 pb-2 px-3 shadow-xl shadow-gray-400 dark:shadow-none">
         <div className="flex flex-col items-center">
-          <h2 className=" text-center text-2xl text-main-text">Login</h2>
+          <h2 className="text-center text-2xl text-main-text">Login</h2>
           <p className="text-sm text-center pb-3 text-gray-600 dark:text-gray-400">
             login to continue
           </p>
           <input
             type="text"
             placeholder="Email"
-            className="w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
+            className=" w-full md:w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            type="number"
+            type="password"
             placeholder="Password"
-            className="w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
+            className=" w-full md:w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           {error && <p className="text-red-600">{error}</p>}
           <button
             onClick={submitHandler}
-            className="bg-blue-600 rounded py-2 px-3 text-white w-6/7 hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800 mb-3"
+            className="bg-blue-600 rounded py-2 px-3 text-white w-full md:w-6/7 hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800 mb-3"
           >
             Login
           </button>

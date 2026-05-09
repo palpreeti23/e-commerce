@@ -33,8 +33,8 @@ function Signup() {
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <div className="w-[30%] bg-gray-100 dark:bg-gray-700 rounded-lg py-4 px-3 shadow-xl shadow-gray-400 dark:shadow-none">
-        <div className="flex flex-col  items-center">
+      <div className=" w-2/3 md:w-[30%] bg-gray-100 dark:bg-gray-700 rounded-lg py-4 px-3 shadow-xl shadow-gray-400 dark:shadow-none">
+        <div className="flex flex-col items-center">
           <h2 className="text-center text-2xl text-main-text">Sign up</h2>
           <p className="text-sm text-center pb-3 text-gray-600 dark:text-gray-400 ">
             signup to continue
@@ -42,28 +42,28 @@ function Signup() {
           <input
             type="text"
             placeholder="Entee Name"
-            className="w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
+            className=" w-full md:w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="text"
             placeholder="Enter Email"
-            className="w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
+            className=" w-full md:w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="number"
             placeholder="Enter Password"
-            className="w-6/7 rounded text-main-text px-3 py-2 mb-3 border border-gray-400"
+            className="w-full md:w-6/7 rounded text-main-text px-3 py-2 mb-3 border border-gray-400"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           {error && <p className="text-red-600">{error}</p>}
           <button
             onClick={submitHandler}
-            className="bg-blue-600 rounded py-2 px-3 w-6/7 mb-3 text-white hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800"
+            className="bg-blue-600 rounded py-2 px-3 w-full md:w-6/7 mb-3 text-white hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800"
           >
             Signup
           </button>
