@@ -41,7 +41,7 @@ function Signup() {
           </p>
           <input
             type="text"
-            placeholder="Entee Name"
+            placeholder="Enter Name"
             className=" w-full md:w-6/7 rounded text-main-text px-3 py-2 border border-gray-400 mb-3"
             value={name}
             onChange={(e) => setName(e.target.value)}
