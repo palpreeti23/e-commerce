@@ -161,21 +161,21 @@ function Order() {
                   <div className="border border-gray-500 px-2 w-1/2 rounded-2xl flex justify-around ">
                     <button
                       onClick={() => dispatch(decreaseQntInBuy(buyNow.id))}
-                      className="font-semibold text-lg text-main-text pb-1 "
+                      className="font-semibold text-lg text-main-text pb-1 cursor-pointer "
                     >
                       -
                     </button>
                     <p className="pt-1 px-1 text-blue-500">{buyNow.quantity}</p>
                     <button
                       onClick={() => dispatch(increaseQntInBuy(buyNow.id))}
-                      className="font-semibold text-lg text-main-text  pb-1"
+                      className="font-semibold text-lg text-main-text cursor-pointer pb-1"
                     >
                       +
                     </button>
                   </div>
                   <button
                     onClick={deleteBuyNow}
-                    className="mx-3 text-main-text font-semibold text-sm"
+                    className="mx-3 text-main-text font-semibold text-sm cursor-pointer"
                   >
                     REMOVE
                   </button>
@@ -239,7 +239,7 @@ function Order() {
                       <button
                         type="submit"
                         onClick={handlePay}
-                        className=" rounded py-1 w-[85%] bg-green-500 mx-auto active:bg-green-600 shadow-sm shadow-green-300"
+                        className=" rounded py-1 w-[85%] bg-green-500 mx-auto active:bg-green-600 shadow-sm shadow-green-300 cursor-pointer"
                       >
                         Pay
                       </button>
@@ -250,7 +250,10 @@ function Order() {
           </div>
 
           <div className=" w-full md:w-1/4 h-auto shadow shadow-gray-200 dark:shadow-none rounded bg-orange-400 mt-5 pb-3 mx-auto cursor-pointer ">
-            <button onClick={orderPlace} className="text-center pt-2">
+            <button
+              onClick={orderPlace}
+              className="text-center pt-2 cursor-pointer"
+            >
               Place Order
             </button>
           </div>

@@ -26,7 +26,7 @@ function MainBanner() {
 
           <button
             onClick={handleShop}
-            className="px-3 py-2 border rounded-lg bg-black text-white text-sm my-2 mr-35"
+            className="px-3 py-2 border rounded-lg bg-black text-white text-sm my-2 mr-35 cursor-pointer"
           >
             Shop Now
           </button>

@@ -113,7 +113,7 @@ function Header({ setSearchQuery }) {
                 />
 
                 <button type="submit">
-                  <FaSearch className="text-black dark:text-gray-400 text-lg" />
+                  <FaSearch className="text-black dark:text-gray-400 text-lg cursor-pointer" />
                 </button>
               </form>
             </div>
@@ -125,7 +125,7 @@ function Header({ setSearchQuery }) {
                   isActive ? "text-orange-400" : ""
                 }
               >
-                <button className="relative px-4 py-1 border border-gray-200 dark:border-gray-800 rounded flex">
+                <button className="relative px-4 py-1 border border-gray-200 dark:border-gray-800 rounded flex cursor-pointer">
                   <AiOutlineHeart className="text-2xl" size={25} />
                   <span className="absolute top-1 right-2  text-xs px-1 py-0.5 mb-3 leading-none bg-orange-500 rounded-xl text-white font-semibold">
                     {wishlist}
@@ -139,7 +139,7 @@ function Header({ setSearchQuery }) {
                   isActive ? "text-orange-400" : ""
                 }
               >
-                <button className="relative px-4 py-1 border border-gray-200 dark:border-gray-800  rounded flex">
+                <button className="relative px-4 py-1 border border-gray-200 dark:border-gray-800  rounded flex cursor-pointer">
                   <FiShoppingCart className="text-2xl" size={25} />
                   <span className="absolute top-1 right-2  text-xs px-1 py-0.5 mb-3 leading-none bg-orange-500 rounded-xl text-white font-semibold">
                     {totalValue}
@@ -153,7 +153,7 @@ function Header({ setSearchQuery }) {
                   isActive ? "text-orange-400" : ""
                 }
               >
-                <button className="relative px-4 py-1 border border-gray-200 dark:border-gray-800  rounded flex">
+                <button className="relative px-4 py-1 border border-gray-200 dark:border-gray-800  rounded flex cursor-pointer">
                   <FaUserCircle className="text-2xl" size={25} />
                 </button>
               </NavLink>
@@ -164,7 +164,7 @@ function Header({ setSearchQuery }) {
                   isActive ? "text-orange-400" : ""
                 }
               >
-                <button className="relative px-4 py-1 border border-gray-200 dark:border-gray-800  rounded flex">
+                <button className="relative px-4 py-1 border border-gray-200 dark:border-gray-800  rounded flex cursor-pointer">
                   <FaClipboardList size={24} />
                 </button>
               </NavLink>
@@ -176,7 +176,7 @@ function Header({ setSearchQuery }) {
               >
                 <button
                   onClick={() => dispatch(ToggleTheme())}
-                  className="px-4 py-1 border border-gray-200 dark:border-gray-800  rounded flex"
+                  className="px-4 py-1 border border-gray-200 dark:border-gray-800  rounded flex cursor-pointer"
                 >
                   {themeMode === "dark" ? (
                     <FiSun className="text-2xl" />
@@ -191,13 +191,13 @@ function Header({ setSearchQuery }) {
           <div className="hidden md:flex flex-1  justify-end">
             <div className="flex justify-around items-center px-2 w-[40%]">
               <Link to={`/login`}>
-                <p className=" font-semibold text-gray-700 dark:text-gray-200 hover:text-orange-400">
+                <p className=" font-semibold text-gray-700 dark:text-gray-200 hover:text-orange-400 cursor-pointer">
                   Login
                 </p>
               </Link>
 
               <Link to={`/signup`}>
-                <p className=" font-semibold text-gray-700 dark:text-gray-200 hover:text-orange-400">
+                <p className=" font-semibold text-gray-700 dark:text-gray-200 hover:text-orange-400 cursor-pointer">
                   Signup
                 </p>
               </Link>

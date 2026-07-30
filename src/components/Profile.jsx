@@ -58,7 +58,7 @@ function Profile() {
           <div className="flex flex-col mt-1 text-left px-2">
             <button
               onClick={() => setShowAdd(true)}
-              className="text-gray-500 ml-2 font-medium text-lg pb-1 active:text-blue-500 text-left"
+              className="text-gray-500 ml-2 font-medium text-lg pb-1 active:text-blue-500 text-left cursor-pointer"
             >
               + Address
             </button>
@@ -108,7 +108,7 @@ function Profile() {
               <FaSignOutAlt size={20} className="text-blue-400 mt-1" />
               <button
                 onClick={logoutHandler}
-                className="text-medium font-medium px-2 "
+                className="text-medium font-medium px-2 cursor-pointer "
               >
                 Logout
               </button>
@@ -133,7 +133,7 @@ function Profile() {
                   onClick={() => {
                     (setEditMode("name"), setShowbtn(true));
                   }}
-                  className="text-sm text-blue-500 pl-5 pt-1 font-medium"
+                  className="text-sm text-blue-500 pl-5 pt-1 font-medium cursor-pointer"
                 >
                   Edit
                 </button>
@@ -154,7 +154,7 @@ function Profile() {
                           setShowbtn(false),
                           setEditMode(null));
                       }}
-                      className="bg-blue-500 px-3 py-1  rounded ml-3"
+                      className="bg-blue-500 px-3 py-1  rounded ml-3 cursor-pointer"
                     >
                       Save
                     </button>
@@ -176,7 +176,7 @@ function Profile() {
                   onClick={() => {
                     (setEditMode("email"), setShowbtn(true));
                   }}
-                  className="text-sm text-blue-500 pl-5 pt-1 font-medium"
+                  className="text-sm text-blue-500 pl-5 pt-1 font-medium cursor-pointer"
                 >
                   Edit
                 </button>
@@ -196,7 +196,7 @@ function Profile() {
                           setShowbtn(false),
                           setEditMode(null));
                       }}
-                      className="bg-blue-500 px-3 rounded ml-3"
+                      className="bg-blue-500 px-3 rounded ml-3 cursor-pointer"
                     >
                       Save
                     </button>
@@ -217,7 +217,7 @@ function Profile() {
                   onClick={() => {
                     (setEditMode("password"), setShowbtn(true));
                   }}
-                  className="text-sm text-blue-500 pl-5 pt-1 font-medium"
+                  className="text-sm text-blue-500 pl-5 pt-1 font-medium cursor-pointer"
                 >
                   Edit
                 </button>
@@ -237,7 +237,7 @@ function Profile() {
                           setEditMode(null),
                           setShowbtn(false));
                       }}
-                      className="bg-blue-500 px-3 rounded ml-3"
+                      className="bg-blue-500 px-3 rounded ml-3 cursor-pointer"
                     >
                       Save
                     </button>

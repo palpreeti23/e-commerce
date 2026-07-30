@@ -63,7 +63,7 @@ function Signup() {
           {error && <p className="text-red-600">{error}</p>}
           <button
             onClick={submitHandler}
-            className="bg-blue-600 rounded py-2 px-3 w-full md:w-6/7 mb-3 text-white hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800"
+            className="bg-blue-600 rounded py-2 px-3 w-full md:w-6/7 mb-3 text-white hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800 cursor-pointer"
           >
             Signup
           </button>

@@ -80,7 +80,7 @@ function ProductDetail() {
                   showAlert({ message: "Added to the cart!", type: "success" }),
                 );
               }}
-              className="w-2/3 md:w-1/4 bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex justify-center gap-1 py-1 px-4 mx-1 my-2 flex-wrap"
+              className="w-2/3 md:w-1/4 bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex justify-center gap-1 py-1 px-4 mx-1 my-2 flex-wrap cursor-pointer"
             >
               <span>
                 <FiShoppingCart size={20} />
@@ -90,7 +90,7 @@ function ProductDetail() {
 
             <button
               onClick={handleBuyNow}
-              className="w-2/3 md:w-1/4 bg-yellow-500 hover:bg-yellow-600 shadow-sm shadow-yellow-500 rounded py-1 px-4 mx-1 my-2 text-center "
+              className="w-2/3 md:w-1/4 bg-yellow-500 hover:bg-yellow-600 shadow-sm shadow-yellow-500 rounded py-1 px-4 mx-1 my-2 text-center cursor-pointer "
             >
               Buy Now
             </button>

@@ -44,7 +44,7 @@ function ProductCard({ product }) {
                   showAlert({ message: "Added to the cart!", type: "success" }),
                 );
               }}
-              className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-2 text-center px-2 mx-1 text-sm text-gray-200"
+              className="bg-orange-400 hover:bg-orange-500 shadow-sm shadow-orange-500 rounded flex gap-1 py-2 text-center px-2 mx-1 text-sm text-gray-200 cursor-pointer"
             >
               <span>
                 <FiShoppingCart size={20} />
@@ -63,7 +63,7 @@ function ProductCard({ product }) {
                   }),
                 );
               }}
-              className={`py-1 px-2 bg-gray-300 rounded hover:text-orange-400 ${
+              className={`py-1 px-2 bg-gray-300 rounded hover:text-orange-400 cursor-pointer ${
                 wishlisted ? "text-orange-500" : "text-gray-500"
               }`}
             >

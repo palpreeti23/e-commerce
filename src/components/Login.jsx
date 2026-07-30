@@ -51,7 +51,7 @@ function Login() {
           {error && <p className="text-red-600">{error}</p>}
           <button
             onClick={submitHandler}
-            className="bg-blue-600 rounded py-2 px-3 text-white w-full md:w-6/7 hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800 mb-3"
+            className="bg-blue-600 rounded py-2 px-3 text-white w-full md:w-6/7 hover:bg-blue-700 active:shadow-md shadow-blue-500 active:bg-blue-800 mb-3 cursor-pointer"
           >
             Login
           </button>
