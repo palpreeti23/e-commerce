@@ -9,7 +9,7 @@ const startServer = async () => {
   try {
     await DBConnect();
     app.listen(port, () => {
-      console.log(`server is running at post ${port}`);
+      console.log(`server is running at port ${port}`);
     });
   } catch (error) {
     console.error("server startServer failed", error);

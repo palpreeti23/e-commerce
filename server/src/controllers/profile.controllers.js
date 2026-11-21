@@ -20,7 +20,7 @@ async function getUserProfile(req, res) {
 async function updateUserProfile(req, res) {
   try {
     const id = req.user._id;
-    const { username, fullname, phone } = req.body;
+    const { username, fullName, phone } = req.body;
 
     let updatedForm = {};
 
@@ -28,8 +28,8 @@ async function updateUserProfile(req, res) {
       updatedForm.username = username.trim();
     }
 
-    if (fullname !== undefined) {
-      updatedForm.fullname = fullname.trim();
+    if (fullName !== undefined) {
+      updatedForm.fullName = fullName.trim();
     }
 
     if (phone !== undefined) {

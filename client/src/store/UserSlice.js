@@ -11,66 +11,30 @@ const storeUserArray = storeUser
   : [];
 
 const initialState = {
-  isAuthenticated: !!authUser,
-  user: authUser,
-  users: storeUserArray,
-  address: storeAddress || [],
+  isAuthenticated: false,
+  user: null,
+  address: [],
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    addUser: (state, action) => {
-      state.users.push(action.payload);
-      localStorage.setItem("users", JSON.stringify(state.users));
-      state.isAuthenticated = true;
-      state.user = action.payload;
-      localStorage.setItem("user", JSON.stringify(state.user));
-    },
     login: (state, action) => {
       state.isAuthenticated = true;
-      state.users = action.payload;
-      localStorage.setItem("user", JSON.stringify(action.payload));
+      state.user = action.payload;
     },
 
-    logout: (state, action) => {
+    logout: (state) => {
       state.isAuthenticated = false;
       state.user = null;
-      localStorage.removeItem("user");
     },
+
     addAddress: (state, action) => {
       state.address.push(action.payload);
-      localStorage.setItem("address", JSON.stringify(state.address));
-    },
-    updateUserName: (state, action) => {
-      state.user.name = action.payload;
-      localStorage.setItem("users", JSON.stringify(state.user));
-    },
-    updateUserEmail: (state, action) => {
-      state.user.email = action.payload;
-      localStorage.setItem("users", JSON.stringify(state.user));
-    },
-    updatePassword: (state, action) => {
-      const users = JSON.parse(localStorage.getItem("users"));
-      const findUser = users.find((useremail) =>
-        useremail.email === state.users.email
-          ? { ...useremail, password: action.payload }
-          : useremail,
-      );
-
-      localStorage.setItem("users", JSON.stringify(findUser));
     },
   },
 });
+export const { login, logout, addAddress } = userSlice.actions;
 
-export const {
-  login,
-  logout,
-  updatePassword,
-  updateUserEmail,
-  updateUserName,
-  addAddress,
-  addUser,
-} = userSlice.actions;
 export default userSlice.reducer;

@@ -443,6 +443,10 @@ async function updateOrderStatus(req, res) {
     }
 
     order.orderStatus = orderStatus;
+
+    if (order.paymentMethod === "cod" && orderStatus === "delivered") {
+      order.paymentStatus = "paid";
+    }
     await order.save();
 
     return res.status(200).json({

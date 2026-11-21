@@ -39,6 +39,8 @@ async function registerUser(req, res) {
 
     res.cookie("token", token, {
       httpOnly: true,
+      secure: false,
+      sameSite: "lax",
     });
     return res.status(201).json({
       success: true,
@@ -82,12 +84,15 @@ async function loginUser(req, res) {
 
     res.cookie("token", token, {
       httpOnly: true,
+      secure: false,
+      sameSite: "lax",
     });
     return res.status(200).json({
       success: true,
       message: "User successfully logged in",
 
       user: {
+        id: user._id,
         username: user.username,
         email: user.email,
         role: user.role,
@@ -104,7 +109,12 @@ async function loginUser(req, res) {
 async function logoutUser(req, res) {
   try {
     //clear token from cookie
-    res.clearCookie("token", { httpOnly: true });
+    // res.clearCookie("token", { httpOnly: true });
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+    });
     const user = req.user;
     return res
       .status(200)
