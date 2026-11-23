@@ -33,8 +33,11 @@ const userSlice = createSlice({
     addAddress: (state, action) => {
       state.address.push(action.payload);
     },
+    setAddresses: (state, action) => {
+      state.address = action.payload;
+    },
   },
 });
-export const { login, logout, addAddress } = userSlice.actions;
+export const { login, logout, addAddress, setAddresses } = userSlice.actions;
 
 export default userSlice.reducer;

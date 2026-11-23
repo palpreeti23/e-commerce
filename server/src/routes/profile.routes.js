@@ -1,5 +1,7 @@
 import { Router } from "express";
 import {
+  addAddress,
+  deleteAddress,
   getUserProfile,
   updateUserProfile,
 } from "../controllers/profile.controllers.js";
@@ -15,5 +17,8 @@ router.patch(
   upload.single("image"),
   updateUserProfile,
 );
+
+router.post("/profile/address", userAuthMiddleware, addAddress);
+router.delete("/profile/address/:addressId", userAuthMiddleware, deleteAddress);
 
 export default router;

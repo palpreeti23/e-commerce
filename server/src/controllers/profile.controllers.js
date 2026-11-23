@@ -69,4 +69,74 @@ async function updateUserProfile(req, res) {
   }
 }
 
-export { getUserProfile, updateUserProfile };
+async function addAddress(req, res) {
+  try {
+    const { name, area, city, state, pin } = req.body;
+
+    if (!name || !area || !city || !state || !pin) {
+      return res.status(400).json({
+        success: false,
+        message: "All address fields are required!",
+      });
+    }
+
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        $push: {
+          addresses: { name, area, city, state, pin },
+        },
+      },
+      { returnDocument: "after", runValidators: true },
+    ).select("-password");
+
+    return res.status(201).json({
+      success: true,
+      message: "Address added successfully!",
+      addresses: user.addresses,
+    });
+  } catch (error) {
+    console.error("Error adding address:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Failed to add address!",
+    });
+  }
+}
+
+async function deleteAddress(req, res) {
+  try {
+    const { addressId } = req.params;
+
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        $pull: {
+          addresses: { _id: addressId },
+        },
+      },
+      { returnDocument: "after" },
+    ).select("-password");
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found!",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Address deleted successfully!",
+      addresses: user.addresses,
+    });
+  } catch (error) {
+    console.error("Error deleting address:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to delete address!",
+    });
+  }
+}
+export { getUserProfile, updateUserProfile, addAddress, deleteAddress };

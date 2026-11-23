@@ -23,6 +23,35 @@ const userSchema = new mongoose.Schema(
     role: { type: String, enum: ["admin", "user"], default: "user" },
     fullName: { type: String, trim: true },
     phone: { type: String, trim: true },
+    addresses: [
+      {
+        name: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        area: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        city: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        state: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        pin: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+      },
+    ],
     avatar: { type: String },
     wishlist: {
       type: [

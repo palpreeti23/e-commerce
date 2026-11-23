@@ -3,37 +3,88 @@ import { useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 import { FaSignOutAlt } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  logout,
-  updatePassword,
-  updateUserEmail,
-  updateUserName,
-} from "../store/UserSlice";
+import { logout, login, setAddresses } from "../store/UserSlice";
 import AddressForm from "./AddressForm";
+import API from "../api/axios";
 
 function Profile() {
   const users = useSelector((state) => state.user.user);
   const { address } = useSelector((state) => state.user);
-  const [name, setName] = useState(users.name || "");
-  const [email, setEmail] = useState(users.email || "");
-  const [password, setPassword] = useState(users.password || "");
+
+  const [fullName, setFullName] = useState(users.fullName || "");
+  const [username, setUsername] = useState(users?.username || "");
+  const [phone, setPhone] = useState(users.phone || "");
+  const [loading, setLoading] = useState(false);
   const [editMode, setEditMode] = useState(null);
   const [showbtn, setShowbtn] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  if (!users) {
-    navigate("/login");
-    return null;
-  }
+  const updateProfileHandler = async () => {
+    try {
+      setLoading(true);
+      const response = await API.patch("/users/profile", {
+        fullName,
+        username,
+        phone,
+      });
 
-  const logoutHandler = () => {
-    dispatch(logout());
-    navigate("/login");
+      // Update Redux with the latest user data
+      dispatch(login(response.data.user));
+
+      // Update the fullname input state
+      setFullName(response.data.user.fullName || "");
+
+      setUsername(response.data.user.username || "");
+      setPhone(response.data.user.phone || "");
+
+      setEditMode(null);
+      setShowbtn(false);
+      alert("Profile updated successfully!");
+    } catch (error) {
+      console.error(
+        "Profile update failed:",
+        error.response?.data?.message || error.message,
+      );
+
+      alert(error.response?.data?.message || "Failed to update profile");
+    } finally {
+      setLoading(false);
+    }
+  };
+  const handleLogout = async () => {
+    try {
+      await API.post("/auth/logout");
+
+      dispatch(logout());
+      navigate("/login");
+    } catch (error) {
+      console.error(
+        "Logout failed:",
+        error.response?.data?.message || error.message,
+      );
+    }
+  };
+  const deleteAddressHandler = async (addressId) => {
+    try {
+      const response = await API.delete(`/users/profile/address/${addressId}`);
+
+      dispatch(setAddresses(response.data.addresses));
+
+      alert("Address deleted successfully!");
+    } catch (error) {
+      console.error(
+        "Address deletion failed:",
+        error.response?.data?.message || error.message,
+      );
+
+      alert(error.response?.data?.message || "Failed to delete address!");
+    }
   };
 
   return (
@@ -48,7 +99,9 @@ function Profile() {
               />
               <div className="flex flex-col mt-3 text-left text-main-text">
                 <h2 className=" ml-2 mt-2 text-sm ">Hello, </h2>
-                <p className=" pl-2 font-medium text-lg">{users.name}</p>
+                <p className=" pl-2 font-medium text-lg">
+                  {users.fullName || users.username}
+                </p>
               </div>
             </div>
           </div>
@@ -67,11 +120,21 @@ function Profile() {
               <ul className="">
                 {address.map((address, index) => (
                   <li
-                    key={index}
-                    className="text-gray-500 ml-3 pl-2 border border-gray-200 dark:border-gray-600 py-1 px-2 rounded-md mb-3 "
+                    key={address._id}
+                    className="text-gray-500 ml-3 border border-gray-200 dark:border-gray-600 py-3 px-3 rounded-lg mb-3 flex items-center justify-between gap-3"
                   >
-                    {address.name},{address.area},{address.city},{address.state}
-                    ,{address.pin}
+                    <p className="text-sm leading-relaxed">
+                      {address.name}, {address.area}, {address.city},{" "}
+                      {address.state}, {address.pin}
+                    </p>
+
+                    <button
+                      onClick={() => deleteAddressHandler(address._id)}
+                      title="Delete address"
+                      className="shrink-0 p-2 rounded-full text-gray-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950 transition-colors cursor-pointer"
+                    >
+                      <FaRegTrashAlt size={15} />
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -107,7 +170,7 @@ function Profile() {
             <div className=" flex py-5  px-5">
               <FaSignOutAlt size={20} className="text-blue-400 mt-1" />
               <button
-                onClick={logoutHandler}
+                onClick={handleLogout}
                 className="text-medium font-medium px-2 cursor-pointer "
               >
                 Logout
@@ -127,11 +190,11 @@ function Profile() {
             <div className="flex flex-col pb-4">
               <div className="flex">
                 <h2 className="text-main-text text-lg font-semibold py-2">
-                  Name
+                  FullName
                 </h2>
                 <button
                   onClick={() => {
-                    (setEditMode("name"), setShowbtn(true));
+                    (setEditMode("fullName"), setShowbtn(true));
                   }}
                   className="text-sm text-blue-500 pl-5 pt-1 font-medium cursor-pointer"
                 >
@@ -139,30 +202,27 @@ function Profile() {
                 </button>
               </div>
 
-              {editMode === "name" ? (
+              {editMode === "fullName" ? (
                 <div className="flex">
                   <input
                     type="text"
                     className="border py-1 px-2 text-gray-500 bg-main-bg rounded-lg border-gray-300 dark:border-gray-700 w-2/3"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
                   />
                   {showbtn && (
                     <button
-                      onClick={() => {
-                        (dispatch(updateUserName(name)),
-                          setShowbtn(false),
-                          setEditMode(null));
-                      }}
+                      onClick={updateProfileHandler}
+                      disabled={loading}
                       className="bg-blue-500 px-3 py-1  rounded ml-3 cursor-pointer"
                     >
-                      Save
+                      {loading ? "Saving..." : "Save"}
                     </button>
                   )}
                 </div>
               ) : (
                 <p className="border py-1 px-1 text-gray-500 bg-main-bg rounded-lg border-gray-300 dark:border-gray-700 w-2/3">
-                  {users.name}
+                  {users.fullName}
                 </p>
               )}
             </div>
@@ -170,84 +230,93 @@ function Profile() {
             <div className="flex flex-col pb-4">
               <div className="flex">
                 <h2 className="text-main-text text-lg font-semibold py-2">
-                  Email Address
+                  Username
                 </h2>
+
                 <button
                   onClick={() => {
-                    (setEditMode("email"), setShowbtn(true));
+                    setEditMode("username");
+                    setShowbtn(true);
                   }}
                   className="text-sm text-blue-500 pl-5 pt-1 font-medium cursor-pointer"
                 >
                   Edit
                 </button>
               </div>
-              {editMode === "email" ? (
+
+              {editMode === "username" ? (
                 <div className="flex">
                   <input
                     type="text"
                     className="border py-1 px-2 text-gray-500 bg-main-bg rounded-lg border-gray-300 dark:border-gray-700 w-2/3"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                   />
-                  {showbtn && (
-                    <button
-                      onClick={() => {
-                        (dispatch(updateUserEmail(email)),
-                          setShowbtn(false),
-                          setEditMode(null));
-                      }}
-                      className="bg-blue-500 px-3 rounded ml-3 cursor-pointer"
-                    >
-                      Save
-                    </button>
-                  )}
+
+                  <button
+                    onClick={updateProfileHandler}
+                    disabled={loading}
+                    className="bg-blue-500 px-3 py-1 rounded ml-3 cursor-pointer"
+                  >
+                    {loading ? "Saving..." : "Save"}
+                  </button>
                 </div>
               ) : (
-                <p className="border py-1 px-2 text-gray-500 bg-main-bg rounded-lg border-gray-300 dark:border-gray-700 w-2/3">
-                  {users.email}
+                <p className="border py-1 px-1 text-gray-500 bg-main-bg rounded-lg border-gray-300 dark:border-gray-700 w-2/3">
+                  {users.username}
                 </p>
               )}
             </div>
-            <div className="flex flex-col">
+
+            <div className="flex flex-col pb-4">
               <div className="flex">
                 <h2 className="text-main-text text-lg font-semibold py-2">
-                  Password
+                  Phone Number
                 </h2>
+
                 <button
                   onClick={() => {
-                    (setEditMode("password"), setShowbtn(true));
+                    setEditMode("phone");
+                    setShowbtn(true);
                   }}
                   className="text-sm text-blue-500 pl-5 pt-1 font-medium cursor-pointer"
                 >
                   Edit
                 </button>
               </div>
-              {editMode === "password" ? (
+
+              {editMode === "phone" ? (
                 <div className="flex">
                   <input
-                    type="text"
-                    className="border py-1 px-2 text-gray-500 bg-main-bgs rounded-lg border-gray-300 dark:border-gray-700 w-2/3"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    type="tel"
+                    className="border py-1 px-2 text-gray-500 bg-main-bg rounded-lg border-gray-300 dark:border-gray-700 w-2/3"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                   />
-                  {showbtn && (
-                    <button
-                      onClick={() => {
-                        (dispatch(updatePassword(password)),
-                          setEditMode(null),
-                          setShowbtn(false));
-                      }}
-                      className="bg-blue-500 px-3 rounded ml-3 cursor-pointer"
-                    >
-                      Save
-                    </button>
-                  )}
+
+                  <button
+                    onClick={updateProfileHandler}
+                    disabled={loading}
+                    className="bg-blue-500 px-3 py-1 rounded ml-3 cursor-pointer"
+                  >
+                    {loading ? "Saving..." : "Save"}
+                  </button>
                 </div>
               ) : (
                 <p className="border py-1 px-1 text-gray-500 bg-main-bg rounded-lg border-gray-300 dark:border-gray-700 w-2/3">
-                  {users.password}
+                  {users.phone || "Not added"}
                 </p>
               )}
+            </div>
+
+            <div className="flex flex-col pb-4">
+              <h2 className="text-main-text text-lg font-semibold py-2">
+                Email Address
+              </h2>
+
+              <p className="border py-1 px-2 text-gray-500 bg-main-bg rounded-lg border-gray-300 dark:border-gray-700 w-2/3">
+                {users.email}
+              </p>
             </div>
           </div>
         </div>
